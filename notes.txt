@@ -1,0 +1,234 @@
+Class - 1
+==========
+
+    -> Azure Cloud 
+
+        -> Application
+
+            -> Any Application does some Task 
+
+                -> Myntra - https://www.myntra.com - Ecommerce Application
+
+                -> Instagram - https://www.instagram.com/ - Social Media Application
+
+                -> Salesforce - https://login.salesforce.com/ - CRM Application 
+
+        -> Data 
+
+            -> Any Application has "Data" 
+
+                -> Myntra - https://www.myntra.com 
+
+                    -> Banners, Products, Images, Prices, Descriptions etc 
+
+            -> Where is this data coming from ? 
+
+                -> Data is coming from Servers 
+
+                    -> Server Types 
+
+                        -> Web Servers: Internet Based Data (Public)
+
+                        -> Database Servers: Sensitive Data(Private)
+
+                        -> Storage Servers: File Storage 
+
+                        -> Email Servers etc
+
+            
+            ->  Where are these Servers ?
+
+                -> Servers are hosted on Datacenters 
+
+        
+        -> Datacenter 
+
+            -> A Data Center is a building, a dedicated space within the building or 
+            a group of buildings, used to house computer systems and associated components
+            such as telecommunication and storage systems.
+
+            -> Outer Structure Of Datacenter
+                
+                -> https://msblogs.thesourcemediaassets.com/2025/11/OMB-Datacenter-11_11-Hero.jpg
+
+            -> Internal Structure Of Datacenter
+
+                -> https://msftstories.thesourcemediaassets.com/sites/696/2024/12/GB200_rack-cluster_zoom.jpg
+
+                -> https://cosmobc.com/wp-content/uploads/sites/7/2025/06/Server-Racks-1-scaled-1.jpg
+
+            
+        -> On-Premise or Physical Datacenters
+
+            -> Managing a Physical Datacenter requires 
+
+                -> Huge Amount Of Time 
+
+                    -> Buy a building / Lease a building / Construct a Datacenter / Order Devices / 
+
+                -> Lot Of Human Resources 
+
+                    -> Hire Physical Security Guards 
+
+                    -> Hire System Admins 
+
+                    -> Hire Network Admins 
+
+                -> Lot Of Capital Expenditure 
+
+                    -> Price For Building 
+                    
+                    -> Price For Computer components
+
+                    -> Price For Network components
+
+
+    -> Me as a business owner, want to start something similar to Myntra 
+
+        -> https://www.myshophyd.com/
+
+        -> Mine is a small business idea, based on running this business for next 6-12 months 
+        i will decide what to do further 
+
+        -> I don't want to take the hassle of setting up a Datacenter form scratch, 
+        that's where i will rely on "Cloud Computing"
+
+    
+    -> Cloud Computing 
+
+        -> The Cloud refers to "On-Demand" availability of Compute Power, 
+        Database Storage, Applications and Other IT Resources through a 
+        Cloud Platform(Azure, AWS, GCP, OCI etc) via "Internet" with 
+        "Pay-As-You-Go" Pricing. 
+
+        -> Cloud Computing can be compared to Online Ride Services 
+
+            -> Online Ride Platforms (On-Demand)
+
+                -> Rapido 
+
+                -> Ola 
+
+                -> Uber 
+
+                -> etc 
+
+
+    -> Cloud Offerings 
+
+        -> Major Cloud providers like Amazon Web Services, Microsoft Azure, and 
+        Google Cloud structure these offerings into three main categories:
+
+            -> Infrastructure as a Service (IaaS)
+
+            -> Platform as a Service (PaaS)
+
+            -> Software as a Service (SaaS)
+
+        -> Infrastructure as a Service (IaaS)
+
+            -> IaaS provides the fundamental building blocks of computing, 
+            allowing you to rent raw IT infrastructure like virtual servers, 
+            storage, and networking.
+
+            -> Raw IT infrastructure: Hardware + Hypervisor(Licensing)
+
+                -> Hypervisor: https://www.cloud4u.com/upload/medialibrary/e69/what-is-a-virtualization-techology.png
+
+                    -> 1. VMware (Broadcom) - vSphere Standard: $1,000 to $1,200
+                    -> 2. Microsoft Hyper-V - Standard Edition: ~$380 to $500
+                    -> etc 
+
+                -> Only Pay for Hardware You use 
+
+                    -> Hardware (https://www.myshophyd.com/)
+
+                        -> 4 CPU - 16 GB RAM - 500 GB SSD - Networking (1GB)
+
+                    -> https://s7280.pcdn.co/wp-content/uploads/2017/09/iaas-paas-saas-comparison.jpg.optimal.jpg
+
+            -> You Manage 
+
+                -> Setup Some Application (Ecommerce Application)
+
+                -> My Main Application Uses Database Application
+                
+                -> Backup & Secure Database Application 
+                
+                -> Install Database Application 
+
+                -> Download Database Application 
+                
+                -> Operating System
+
+            -> Azure Manages  
+
+                -> Virtualization     
+
+                -> Hardware (CPU + RAM + HDD + NW)
+
+            -> NOTE: In IaaS, You manage the operating system, data, and applications.
+
+
+
+        -> Platform as a Service (PaaS)
+
+            -> PaaS provides a complete, ready-to-use environment for 
+            building, testing, and deploying applications.
+
+            -> You Manage 
+
+                -> Setup Some Application (Ecommerce Application)
+
+                -> My Main Application Uses Database Application
+                
+
+            -> Azure Manages  
+
+                -> Backup & Secure Database Application 
+                
+                -> Install Database Application 
+
+                -> Download Database Application 
+                
+                -> Operating System
+
+                -> Virtualization     
+
+                -> Hardware (CPU + RAM + HDD + NW)
+
+            -> NOTE: In PaaS, You focus entirely on writing code.
+
+
+        -> Software as a Service (SaaS)
+
+            -> SaaS delivers fully functional, ready-to-use software applications 
+            over the internet on a subscription basis.
+
+
+            -> You Manage 
+                
+                -> NOTHING
+
+            -> Azure Manages 
+
+                -> Setup Some Application (Ecommerce Application)
+
+                -> My Main Application Uses Database Application 
+
+                -> Backup & Secure Database Application 
+                
+                -> Install Database Application 
+
+                -> Download Database Application 
+                
+                -> Operating System
+
+                -> Virtualization     
+
+                -> Hardware (CPU + RAM + HDD + NW)
+
+            -> NOTE: In SaaS, You focus on Using Application.
+
+            
+
