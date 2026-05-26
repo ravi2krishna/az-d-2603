@@ -231,4 +231,99 @@ Class - 1
             -> NOTE: In SaaS, You focus on Using Application.
 
             
+Class - 2
+==========
+
+    -> Infrastructure 
+
+        -> Traditional Approach (Setting Up Application Infrastructure On Physical Datacenter)
+
+        -> An Ecommerce Application Like Myntra (https://www.myntra.com/)
+        requires following infrastructure components 
+
+            -> Servers 
+                +
+            -> Storage
+                +
+            -> Databases            ----------> Myntra (https://www.myntra.com/)
+                +
+            -> Networking 
+                +
+            -> Security
+                +
+            -> etc 
+
+        
+        -> New Application (Setting Up Application Infrastructure On Cloud Datacenter - AZURE)
+
+        -> An Ecommerce Application Like Myntra (https://www.myntra.com/)
+        requires following infrastructure components On Azure Cloud 
+
+            -> Servers          -   Azure Virtual Machines
+                +                       +
+            -> Storage          -   Azure Storage Account
+                +                       +
+            -> Databases        -   Azure SQL              ----------> Myntra (https://www.myntra.com/) 
+                +                       +
+            -> Networking       -   Azure Virtual Network
+                +                       +
+            -> Security         -   Microsoft Entra ID
+                +                       +
+            -> etc              -   etc 
+
+    
+        -> GOAL 1: To Learn about Individual Azure Services and Do Implementations 
+
+        -> GOAL 2: Once the Application is built using above Azure Services, 
+        the Application should have following characteristics (4 Pillars Of Cloud)
+
+            -> High Availability 
+
+                -> High Availability in Azure ensures Applications are continuously 
+                Accessible & Operational (24X7) i.e Uptime 99.9% and Above 
+
+                    -> https://www.pan.utiitsl.com/panonline_ipg/forms/csfPan.html/csfPreForm
+
+                    -> https://drive.google.com/file/d/16O-aDK-g_CCJpWoyvho79f_H2SUplCT2/view?usp=sharing
+
+
+            -> Fault Tolerance 
+
+                -> Fault Tolerance in Azure refers to the ability of a system to continue 
+                operating without interruption in the event of hardware failures
+
+                -> Fault Tolerance is associated with Self Healing 
+
+                -> https://media.licdn.com/dms/image/v2/D5612AQEAzCREjM2taA/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1725775705951?e=2147483647&v=beta&t=KvlTnTdCqnEQHIve0aGoksUSxAG69UalK3GLGcDgUso
+
+                -> https://assets.enterprisestorageforum.com/uploads/2021/02/understanding-fault-tolerance-securing-your-system_6019c7b9d29a4.png
+
+
+            -> Scalability 
+
+                -> Scalability in Azure refers to the ability of a system to handle 
+                increasing workloads and accommodate according to growing demands.
+
+                -> https://steadybit.com/wp-content/uploads/2025/09/validate-aws-ecs-auto-scaling-comp.png
+                
+                -> Horizontal Scaling & Vertical Scaling 
+
+                -> https://miro.medium.com/v2/resize:fit:1400/1*6QXIzkckOcx2eXo9uEhWZw.png 
+
+            -> Security
+
+                -> Security in Azure refers to the measures taken to protect cloud resources
+                and applications from Unauthorized Access. 
+
+                    -> Account Level 
+                        
+                        -> https://miro.medium.com/v2/resize:fit:1200/1*CgfJAcRlay0O9amULak-fw.png 
+
+                        -> https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/126400-hero-video-thumbnail?resMode=sharp2&op_usm=1.5,0.65,15,0&wid=2000&hei=1125&qlt=100&fit=constrain
+
+                    -> Application Level(from www)
+
+                        -> https://learn.microsoft.com/en-us/azure/virtual-network/media/network-security-group-how-it-works/network-security-group-interaction.png
+
+
 
