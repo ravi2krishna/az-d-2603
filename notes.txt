@@ -327,3 +327,84 @@ Class - 2
 
 
 
+Class - 3
+==========
+
+    -> In terms Of Azure Infrastructure, we have  
+
+        -> Regions 
+
+        -> Availability Zones 
+
+    -> Azure Global Infrastructure - https://azure.microsoft.com/en-in/global-infrastructure/
+
+        -> 70+ Azure regions | 400+ datacenters
+
+    
+    -> Regions 
+
+        -> Azure Cloud Computing resources are available in different geographical locations
+        which are termed as Regions 
+
+        -> Regions are designed to service Azure Customers(your clients) that are 
+        located closet to a region 
+
+            -> https://cdn.britannica.com/96/212396-050-1FC95D3E/world-map-with-country-borders.jpg
+
+        
+        -> Availability Of Products/Services from Azure, vary from one Region To Another 
+
+            -> https://azure.microsoft.com/en-GB/explore/global-infrastructure/products-by-region/table
+
+        
+        -> To meet specific data residency/compliance requirements.
+
+        
+        -> Pricing Varies from Region To Region 
+
+            -> https://azure.microsoft.com/en-in/pricing/calculator/
+
+            -> 1000 GB Storage - Estimated annual cost $262.13 (East US)
+
+            -> 1000 GB Storage - Estimated annual cost $298.13 (South India)
+
+
+    -> Availability Zones (AZ or Zone) 
+
+        -> Availability Zones are actual Physical datacenters within Azure Regions 
+
+        -> Within a Region, there can be Multiple Availability Zones (minimum of three )
+
+        -> Each Zone has it's own independent components like,
+        Power Supply, Networking, Cooling System, Physical Security etc 
+
+        -> https://i0.wp.com/build5nines.com/wp-content/uploads/2018/03/az-1-zones.png?ssl=1
+
+        -> NOTE: They ensure high availability and fault tolerance
+
+        -> NOTE: Availability Zones are connected with Low Latency and High Speed Network Connections 
+
+    
+    -> To Use the Azure Cloud Infrastructure, we need to create an Azure Account 
+
+        -> Account Types include 
+
+            -> Free Tier  (For Learning)
+
+                -> https://azure.microsoft.com/en-us/pricing/purchase-options/azure-account
+
+                    -> Select: Try Azure For Free (1 Month Free)
+
+                    -> Email 
+
+                    -> Mobile Number 
+
+                    -> Credit / Debit Card (2 INR For Verification)
+
+            -> Pay As You Go  (For Production)
+
+        
+        -> NOTE: Once an Azure Account is created, you can login and test services from Azure Portal 
+
+            -> https://portal.azure.com/
+
