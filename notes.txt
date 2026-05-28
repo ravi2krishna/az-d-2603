@@ -408,3 +408,158 @@ Class - 3
 
             -> https://portal.azure.com/
 
+
+Class - 4
+==========
+
+    -> To Construct Our Own Datacenter inside Azure Cloud we need VNET Service 
+
+    -> Azure Virtual Network - VNET 
+
+        -> A Virtual Network (VNET) in Azure is a foundational service that enables you to 
+        "build your own private network" in the Azure cloud. 
+
+        -> VNET lets you launch AZURE resources (servers, databases, applications etc) in a 
+        logically isolated virtual network that you define.
+
+            -> https://www.akamai.com/site/en/images/article/2023/akamai-public-private-cloud.png
+
+            -> https://images.netcomlearning.com/cms/images/virtual-private-cloud.jpg
+
+        -> NOTE: Having VNET is similar to having your own data Center inside AZURE
+
+        -> VNET is a service that lets customers(IBM) provision a logically isolated 
+        section of the AZURE Cloud where you can launch AZURE resources(Servers) 
+        in a VIRTUAL NETWORK that you define.
+
+        -> NOTE: VNET forms the backbone for cloud infrastructure to build any applications
+
+
+        -> VNET Allows Azure resources like 
+
+            -> Virtual Machines 
+
+            -> Database 
+
+            -> Kubernetes Cluster 
+
+            to communicate with each other, the internet and on-Premise network 
+
+        
+        -> Think of a VNet like a company office network, but inside Azure cloud.
+
+            -> In an office network:
+
+               -> Employees connect to Routers 
+
+               -> Systems communicate internally (LAN)
+
+               -> Security rules to control access 
+
+            -> Similarly In Azure:
+
+                -> VM's connect to VNET 
+
+                -> Subnets divide the Networking
+                
+                -> Route Tables will manage traffic routing 
+
+                -> Network Security Groups like Security rules in Firewalls 
+
+        -> Without Vnet 
+
+            -> Servers cannot communicate
+            -> Applications cannot connect to databases
+            -> Security cannot be controlled
+            -> Internet connectivity cannot be managed
+
+        -> NOTE: VNet is the foundation of Azure infrastructure.
+    
+    
+    -> Azure Virtual Network - VNET - Components
+
+        -> VNet 
+
+            -> An Azure Virtual Network (VNet) is the foundational building block 
+            for your private network in Microsoft Azure.
+
+            -> This creates main private network
+
+        -> Subnets (Subnetting)
+
+            -> Subnets enable you to segment the virtual network into 
+            one or more sub networks and allocate a portion of the virtual network's address
+
+            -> Web Subnet, App Subnet & DB Subnet 
+
+            -> This Organizes infrastructure, improves security and isolate workloads
+
+        -> Address Space (CIDR Block)
+
+            -> CIDR (Classless Inter-Domain Routing) is a method for allocating IP addresses
+
+            -> Subnets are created using classless internet domain routing (CIDR) blocks 
+            of the address space that was designed for the Virtual Network(VNet).
+
+            -> This helps in dividing the VNet efficiently 
+
+    
+        -> Route Tables 
+
+            -> An Azure Route Table contains a set of custom rules (User Defined Routes) 
+            that dictate where network traffic is directed within your Virtual Network. 
+            
+            -> Azure automatically assigns system routes to every subnet, 
+            but you can override these by creating a custom route table and 
+            associating it with specific subnets.
+
+            -> This helps in directing the traffic properly 
+
+        -> Network Security Groups (NSG)
+
+            -> A Network Security Group (NSG) in Azure acts as a virtual firewall, 
+            filtering inbound and outbound network traffic to and from Azure resources. 
+            
+            -> It contains security rules that allow or deny traffic based on IP address, 
+            port, and protocol, helping to secure your virtual networks.
+
+            -> This acts like a Firewall 
+
+        -> Public IP Address
+
+            -> Public IP addresses enable Azure resources to communicate to internet 
+            and public-facing Azure services.
+
+            -> This is for internet(www) communication
+
+        -> Private IP Address
+
+            -> Azure Private IPs enable secure, internal communication between 
+            Virtual Machines (VMs), load balancers, and on-premises networks 
+            without exposing resources to the internet. 
+            
+            -> They are drawn directly from the address space of your 
+            Virtual Network (VNet) subnet.
+
+            -> This is for intranet(local) communication
+
+        -> DNS (Domain Name Service)
+
+            -> Azure DNS manages and resolves domain names in the virtual network 
+            without the need to configure a custom DNS solution.
+
+            -> This is for ip translation to names. 
+
+        -> Azure Network Interface Card - NIC
+
+            -> In Azure, a Network Interface (NIC) is a "crucial" resource that connects a 
+            Virtual Machine (VM) to a Virtual Network (VNet), enabling communication 
+            with the internet, other Azure services, and on-premises networks. 
+
+                -> https://blog.cloudtrooper.net/wp-content/uploads/2023/01/image-2.png?w=607
+
+            -> Each NIC acts as a virtual network adapter, allowing for IP configurations 
+            (private/public, static/dynamic), association with Network Security Groups (NSGs) 
+            for traffic filtering, and even multiple NICs per VM for advanced connectivity. 
+
+            -> This is for connecting VMS to VNET Subnet
