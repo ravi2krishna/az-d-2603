@@ -563,3 +563,83 @@ Class - 4
             for traffic filtering, and even multiple NICs per VM for advanced connectivity. 
 
             -> This is for connecting VMS to VNET Subnet
+
+
+Class - 5
+==========
+
+    -> Most Popular Applications
+        
+        -> https://en.wikipedia.org/wiki/Programming_languages_used_in_most_popular_websites
+
+    -> Requirement Given By Client (XYZ)
+
+    -> XYZ is going setup the Web Application Environment i.e we need Servers On Azure 
+
+    -> These servers are grouped into "three" subnets each with 4k servers
+
+    -> First Subnet is for web servers(frontend), around 4k
+
+	-> Second Subnet is for application servers(backend), around 4k
+
+	-> Third Subnet is for database servers, around 4k
+
+    -> In the future, they might add more number of subnets 
+    i.e cache subnets, load balancer subnet etc
+
+    -> The web servers and app servers needs to be communicated from internet
+
+    -> The database servers needs to be communicated only from App Servers, 
+    but not from internet
+
+        -> Coming to security of Web Servers, they should have only 
+            -> SSH traffic enabled for administration from internet
+            -> HTTP traffic for clients from internet
+            -> HTTPS traffic for clients from internet
+
+        -> Coming to security of App Servers, they should have only 
+            -> SSH traffic enabled for administration from internet
+            -> HTTP traffic port 8080 for clients from internet
+
+        -> Coming to security of Database Servers, they should have only 
+            -> SSH traffic enabled from web servers only
+            -> Postgres Database Traffic Allowed from App Servers
+
+    
+    -> NOTE: Subnetting In VNET 
+
+        -> The smallest supported IPv4 subnet is a /29 and the largest is a /2 
+
+        -> Allowed Subnetting Size is /2 to /29 
+
+        -> https://media.licdn.com/dms/image/v2/C4D22AQHUisiaMLb_2A/feedshare-shrink_800/feedshare-shrink_800/0/1674986594079?e=2147483647&v=beta&t=j71G5D_ciVaSIebs1hMlzWd5FKezdll6XroJihdrXl8
+
+            -> /20: 4096 IP addresses
+
+            -> /22: 1024 IP addresses
+
+        -> NOTE: Most of the times we see /16 for VNET 
+
+        -> NOTE: Azure reserves exactly 5 IP addresses in every subnet 
+        for internal protocol conformance and Azure service usage. 
+        These IPs cannot be assigned to your Virtual Machines (VMs) or resources.
+
+            -> First IP: Network address.
+            -> Second IP: Default gateway used by Azure.
+            -> Third & Fourth IPs: Mapped to Azure DNS IP addresses 
+            -> Last IP: Network broadcast address
+
+            -> NOTE: Say our subnet is 10.0.0.0/20 
+
+                -> 10.0.0.0 (Reserved for Network address)
+                -> 10.0.0.1 (Reserved for gateway)
+                -> 10.0.0.2 (Reserved for Azure DNS)
+                -> 10.0.0.3 (Reserved for Azure DNS)
+
+                    -> 10.0.0.4 (usable start)
+                    .
+                    .
+                    .
+                    -> 10.0.15.254 (usable end)
+
+                -> 10.0.15.255 (Reserved for Network broadcast)
