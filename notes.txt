@@ -643,3 +643,11 @@ Class - 5
                     -> 10.0.15.254 (usable end)
 
                 -> 10.0.15.255 (Reserved for Network broadcast)
+
+
+Class - 6
+==========
+
+    -> Setup Vnet Based on above requirement
+
+    
