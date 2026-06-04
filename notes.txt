@@ -650,4 +650,112 @@ Class - 6
 
     -> Setup Vnet Based on above requirement
 
+
+Class - 7
+==========
+
+    -> Earlier we had our infrastructure setup using Graphical User Interface (GUI) (Beginner)
+
+        -> Created Myntra Vnet (Web, Application, Database) using GUI took 45 mins 
+
+        -> New Requirement: Amazon.in Vnet (Web, Application, Database) using GUI took 45 mins 
+
+        -> New Requirement: Zepto Vnet (Web, Application, Database) using GUI took 45 mins 
+
     
+    -> We can also setup infrastructure using Command Line Interface (CLI) (Intermediate)
+
+        -> Created Myntra Vnet (Web, Application, Database) using CLI took 45 mins 
+
+        -> New Requirement: Amazon.in Vnet (Web, Application, Database) using CLI took 15 mins 
+
+        -> New Requirement: Zepto Vnet (Web, Application, Database) using CLI took 15 mins 
+
+
+    -> We can also setup infrastructure using Scripts (CODE) (Pro Level)
+
+        -> Created Myntra Vnet (Web, Application, Database) using CODE took 45 mins 
+
+        -> New Requirement: Amazon.in Vnet (Web, Application, Database) using CODE took 2 mins 
+
+        -> New Requirement: Zepto Vnet (Web, Application, Database) using CODE took 2 mins 
+
+
+    -> Setting Up Infrastructure Using CLI (Command Line Interface)
+
+        -> Azure CLI Tool 
+
+        -> The Azure Command-Line Interface (CLI) is a cross-platform, text-based tool developed by Microsoft 
+        to create, manage, and automate cloud resources. It serves as a faster, scriptable alternative to 
+        navigating the graphical Azure Portal.
+
+        -> Azure CLI Tool can be Installed On Windows, macOS & Linux 
+
+    
+    -> To use the Azure CLI locally, you must first install it 
+
+        -> Windows, macOS & Linux 
+
+        -> No Installation Option: Access a fully functional, pre-installed instance directly inside your browser 
+        via Azure Cloud Shell.
+
+    -> Install Using Below Link
+
+        -> https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?view=azure-cli-latest&pivots=winget
+
+        -> In Linux, Install with one command
+
+            -> az 
+
+            -> curl -fsSL 'https://azurecliprod.blob.core.windows.net/$root/deb_install.sh' | sudo bash
+
+            -> az 
+
+        -> To Login With Your Account 
+
+            -> az login --use-device-code 
+
+        -> Confirm Access Using 
+
+            -> az group list
+
+            -> az group list --output table
+
+            -> az group create --name zepto-rg --location westus2
+
+            -> az network vnet create --resource-group zepto-rg --name zepto-vnet --location westus2 
+
+                -> above goes with default as 10.0.0.0/16 
+
+            -> az network vnet create --resource-group zepto-rg --name zepto-vnet --address-prefixes 192.168.0.0/16 --location westus2 
+
+            -> az network vnet subnet create -g zepto-rg --vnet-name zepto-vnet -n zepto-web-subnet --address-prefixes 10.0.0.0/24 
+
+            -> az network vnet subnet create -g zepto-rg --vnet-name zepto-vnet -n zepto-app-subnet --address-prefixes 10.0.1.0/24 
+
+            -> az network vnet subnet create -g zepto-rg --vnet-name zepto-vnet -n zepto-db-subnet --address-prefixes 10.0.2.0/24 
+
+Class - 8
+==========
+
+    -> Azure CLI Continued
+
+        -> az network route-table create -g zepto-rg -n zepto-www-rt 
+
+        -> az network route-table route create -g zepto-rg --route-table-name zepto-www-rt -n MyRoute --next-hop-type Internet --address-prefix 0.0.0.0/0 
+
+        -> az network vnet subnet update --resource-group zepto-rg --vnet-name zepto-vnet --name zepto-web-subnet --route-table zepto-www-rt 
+
+        -> az network nsg create -g zepto-rg -n zepto-web-nsg 
+
+        -> az network nsg rule create -g zepto-rg --nsg-name zepto-web-nsg -n zepto-web-nsg-http --priority 100 
+
+        -> az network nsg rule create -g zepto-rg --nsg-name zepto-web-nsg -n zepto-web-nsg-ssh --priority 110 --destination-port-ranges 22
+
+        -> az network public-ip create -g zepto-rg -n zepto-web-pip 
+
+        -> az network nic create -g zepto-rg --vnet-name zepto-vnet --subnet zepto-web-subnet -n zepto-web-nic 
+
+        -> az network nic ip-config update -g zepto-rg --nic-name zepto-web-nic -n ipconfig1 --public-ip-address zepto-web-pip
+
+        -> az network nic update -g zepto-rg -n zepto-web-nic --network-security-group zepto-web-nsg
