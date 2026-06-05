@@ -759,3 +759,57 @@ Class - 8
         -> az network nic ip-config update -g zepto-rg --nic-name zepto-web-nic -n ipconfig1 --public-ip-address zepto-web-pip
 
         -> az network nic update -g zepto-rg -n zepto-web-nic --network-security-group zepto-web-nsg
+
+
+Class - 9
+==========
+
+    -> Infrastructure As Code - IaC 
+
+        -> Infrastructure as code is the process of managing and provisioning computer 
+        data center resources through machine-readable definition files(CODE/SCRIPT), 
+        rather than physical hardware configuration(GUI) or 
+        interactive configuration tools(Azure CLI).
+
+        -> IaC Concept 
+
+            -> The IaC model approaches networks, servers, databases, and other resources 
+            in a descriptive manner via "versioning" (similar to using VCS in Development, 
+            in DevOps we are tracking infrastructure code). 
+
+            -> Like Developers Write "Application Code" To Build Applications 
+
+                -> Languages - Java, Python, C# etc 
+
+            -> As DevOps Engineer, you will be writing "Infrastructure Code" To Build Infrastructure 
+
+                -> Tools / Services -  
+
+                    -> Tools - Terraform / Ansible etc 
+
+                    -> Services - ARM Templates / AWS Cloud Formation Templates etc 
+
+        
+        -> Azure ARM Templates 
+
+            -> An Azure Resource Manager (ARM) template is a JavaScript Object Notation (JSON) 
+            file that defines the infrastructure and configuration for your Azure project 
+            using a declarative syntax. It allows you to provision, manage, and deploy 
+            all the necessary resources for your solution in a single, coordinated operation, 
+            ensuring consistency and repeatability across different environments. 
+
+            -> https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/overview
+
+            -> https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/
+
+        
+        -> ARM Templates can be created using 
+
+            -> Using Microsoft Azure Website (Tedious)
+
+            -> Using Visual Studio Code (IDE)
+
+                -> Install Bicep Extension from Microsoft (microsoft.com)
+
+            -> Best & Easy Approach is using Azure Portal, where you can generate the template 
+
