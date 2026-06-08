@@ -813,3 +813,118 @@ Class - 9
 
             -> Best & Easy Approach is using Azure Portal, where you can generate the template 
 
+
+Class - 10
+==========
+
+    -> Azure Virtual Machines - VM's 
+
+        -> An Azure Virtual Machine (VM) is a scalable, on-demand computing resource in the Microsoft Azure 
+        cloud that emulates a physical computer, giving you control over the OS and applications without 
+        managing hardware.
+
+        -> Computer / Laptop                        -> Azure Virtual Machine (Azure VM)
+
+            -> Hardware                                 -> VM Sizes [ CPU + RAM ]
+
+                -> Dell 3000, Alien ware etc                -> General Purpose, Compute, Memory, and Storage optimized
+
+                                                            -> https://azure.microsoft.com/en-us/pricing/details/virtual-machines/series/
+
+
+                -> Hard Disk [200 GB / 500 GB etc]      -> Azure Disk [200 GB / 500 GB etc] 
+
+
+                -> Network                              -> Azure Virtual Network (VNET)
+
+                    -> We Use Routers, Firewalls etc        -> We Use Routers, Firewalls etc
+
+                
+                -> Install Operating System             -> Azure Images 
+
+                    -> Like Installing Windows & Linux      -> OS Like Windows & Linux are already built 
+
+                                                            -> https://s7280.pcdn.co/wp-content/uploads/2017/09/iaas-paas-saas-comparison.jpg.optimal.jpg
+
+                
+                -> Login / Authentication               -> Azure Key Pairs 
+
+                    -> Username & Password                  -> Username & Password
+
+                                                            -> You can also use Key Pairs (Public & Private Key)
+
+
+                -> Start Managing Computer              -> Start Managing Azure Virtual Machine 
+
+                    -> Install Softwares &                  -> Install Softwares & 
+                    Applications                            Applications
+
+                    -> Install Browser, Games,              -> Install Server Side Softwares
+                    Music Players etc                       Nginx Web Server, MySQL DB Server etc 
+
+                    -> NOTE: For Personal Use               -> NOTE: For Official Use
+
+
+    -> Why to create Virtual Machines - VM's ? 
+
+        -> To Deploy Applications which will be used by business customers 
+
+            -> https://www.myntra.com
+
+        -> NOTE: The above application is being loaded from Myntra Servers i.e 
+        Myntra Azure VM's 
+
+    
+    -> Myntra Application has following Components 
+
+        -> Most Popular Applications
+        
+            -> https://en.wikipedia.org/wiki/Programming_languages_used_in_most_popular_websites
+
+        -> To Deploy Myntra or Any above application in Most Popular Applications, we need 
+        servers/Azure VM's  for 
+
+            -> Web Servers
+
+            -> Application Servers
+
+            -> Database Servers 
+
+
+    -> Setup an application like Myntra on Azure Infrastructure 
+
+        -> Launch Azure Virtual Machine 
+
+        -> Earlier We Launched Virtual Machines With Username & Password 
+
+        -> Now We Will Launch Virtual Machines With Key Pair 
+
+            -> In Microsoft Azure, an SSH key pair is the secure, 
+            recommended method for authenticating into Linux Virtual Machines (VMs) 
+            without a password. The public key is deployed to the Azure VM, 
+            while the private key is kept securely on your local machine to grant you access.
+
+            -> Key Pair: Public Key & Private Key 
+
+            -> When Creating VM, it will prompt to download Private Key (.pem file)
+
+
+        -> To Login 
+
+            -> From Web Use 
+
+                -> https://ssheasy.com 
+
+            -> Using Client Machine, We Install Tools 
+
+                -> Terminal / Command Prompt 
+
+                    -> Syntax
+
+                        -> chmod 400 private_key (Setting Read Only Permissions)
+
+                        -> chmod 400 az2603.pem 
+
+                        -> ssh -i private_key username@public-ip-address 
+                
+
