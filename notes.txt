@@ -928,3 +928,77 @@ Class - 10
                         -> ssh -i private_key username@public-ip-address 
                 
 
+
+Class - 11
+==========
+
+    -> GOAL: Setup an application like Myntra on Azure Infrastructure 
+
+    -> To Access Web Application We Use Domain Names or IP Address 
+
+        -> When Accessed With Domain Names or IP Address, Sit is not loading 
+
+    -> Web Server  
+
+        -> A web server is computer software that accepts requests via HTTP 
+        to distribute web content.  
+
+            -> Web Servers Use HTTP / HTTPS (port 80 / 443)
+
+        -> Nginx Web Server is a popular choice for hosting Web Sites 
+
+        -> Nginx Web Server Is Not installed by default 
+
+            -> sudo ss -ntpl (check ports)
+
+            -> sudo systemctl status nginx 
+
+            -> Browse Public IP Address in Browser
+
+        -> Install Nginx Web Server 
+
+            -> sudo apt update -y 
+            -> sudo apt install nginx -y 
+            -> sudo ss -ntpl (check ports)
+            -> sudo systemctl status nginx 
+            -> Browse Public IP Address in Browser
+
+
+        -> NOTE: Developers will update code to platforms like GitHub / Azure Repositories 
+
+        -> Application code - https://github.com/ravi2krishna/ecomm.git 
+
+        -> Deploy Application 
+
+            -> Every Web Server has Document Root i.e Location Where Code Should Be Placed 
+
+                -> /var/www/html 
+                -> ls /var/www/html 
+                -> sudo cat /var/www/html/index.nginx-debian.html
+                -> sudo git clone https://github.com/ravi2krishna/ecomm.git  /var/www/html
+                    -> fatal: destination path '/var/www/html' already exists and is not an empty directory.
+                -> sudo rm -r /var/www/html/* 
+                -> ls /var/www/html 
+                -> sudo git clone https://github.com/ravi2krishna/ecomm.git  /var/www/html
+                -> ls /var/www/html 
+
+            -> NOTE: Browse Public IP Address in Browser To Verify Application
+
+    
+    -> Creating New Server, for additional Demand Of Resources 
+
+        -> Now to host Application, we need top install Nginx and Deploy Application once again 
+
+        -> Another case can be issue with Availability 
+
+        -> Another case cen be Backup 
+
+        -> NOTE: For above issues we can use Azure Custom Images 
+
+            -> Azure Compute Galleries 
+
+                -> Azure compute galleries help you organize your custom managed images, 
+                share images with users, and replicate images to multiple regions.
+
+    
+        -> NOTE: Next will setup Application On Windows Platform 
