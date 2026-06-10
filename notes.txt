@@ -1002,3 +1002,64 @@ Class - 11
 
     
         -> NOTE: Next will setup Application On Windows Platform 
+
+
+Class - 12
+==========
+
+    -> Setup Windows Platform & Deploy Application
+
+    -> Internet Information Services (IIS) is a secure, flexible, and manageable 
+    web server developed by Microsoft to host anything on the Web. 
+    Integrated tightly with the Windows operating system, 
+    it is used to serve web applications, APIs, and static websites using protocols 
+    like HTTP, HTTPS.
+
+    -> Install / Enable Internet Information Services (IIS)
+
+    -> Application code - https://github.com/ravi2krishna/ecomm.git 
+
+        -> Deploy Application 
+
+            -> Every Web Server has Document Root i.e Location Where Code Should Be Placed 
+
+            -> C:\inetpub\wwwroot
+
+            -> Download https://github.com/ravi2krishna/ecomm.git 
+
+            
+    -> Storage Management 
+
+        -> Azure Disks 
+
+            -> Azure Disk Storage provides scalable, durable block-level storage volumes 
+            (managed as virtual hard disks) for Azure Virtual Machines. 
+            It operates like a physical hard drive but is fully virtualized, 
+            allowing for seamless attachment, detachment, and 
+            capacity scaling without impacting overall VM availability.
+
+
+        -> When you provision a Virtual Machine in Azure, 
+        it typically includes three roles of disks:
+        
+            -> OS Disk: Holds the pre-installed operating system (Windows or Linux) and 
+            boot volume.
+            
+            -> Data Disk: Attached to the VM to specifically store application data. 
+            A single VM can have multiple data disks depending on its size.
+            
+            -> Temporary Disk: Provides short-term, local storage meant for 
+            page/swap files and temporary data; this data can be lost during VM 
+            reboots or re deployments. 
+
+        -> NOTE: While creating VM, by default Primary Disk i.e OS Disk will be created 
+
+        -> Optionally you can add Secondary Disk i.e Data Disks while creating VM
+        or after creating VM
+
+        -> NOTE: Availability Zones(AZ) Of VM and Disks are Locked With Each Other 
+
+            -> Scenario 1 - Server in AZ-1 and Disk in AZ-1 (No issues, works)
+
+            -> Scenario 1 - Server in AZ-2 and Disk in AZ-1 (Issues, Doesn't work)
+
