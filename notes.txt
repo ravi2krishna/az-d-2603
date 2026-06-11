@@ -1063,3 +1063,43 @@ Class - 12
 
             -> Scenario 1 - Server in AZ-2 and Disk in AZ-1 (Issues, Doesn't work)
 
+
+Class - 13
+==========
+
+    -> Azure Disk Continued 
+
+        -> Create Disk 
+
+        -> Attach Disk 
+
+        -> Detach Disk 
+
+        -> Delete Disk 
+
+    -> Modifying Disk 
+
+        -> Only Scaling Up is Possible, NO Scaling Down 
+
+        -> Changing Zone is not possible 
+
+        -> Only One Disk Can be Attached To One VM at a time 
+
+    
+    -> Azure Disk Snapshot
+    
+        -> An Azure Disk Snapshot is a read-only, point-in-time copy of a Virtual Machine (VM) 
+        managed disk. It is widely used for quick backups, testing, cloning VMs, and troubleshooting.
+
+        -> Azure Snapshots are outside Zone Scopes i.e any zone can access Snapshot, unlike disks 
+
+        -> Say if you need data across different zones, rely on Snapshots
+
+        -> Say if you need data across different regions, rely on Snapshots
+
+        -> Azure Snapshots cannot be directly attached to VM's 
+
+            -> Using Snapshots create Disks to use them 
+
+
+
