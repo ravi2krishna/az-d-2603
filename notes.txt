@@ -1103,3 +1103,42 @@ Class - 13
 
 
 
+Class - 14
+==========
+
+    -> Azure File Shares 
+
+        -> Azure Files provides fully managed, cloud-hosted "file shares" that you can access 
+        concurrently from anywhere in the world using standard protocols like SMB and NFS.
+
+            -> SMB is for windows platforms
+
+                -> The Server Message Block (SMB) protocol is an application-layer 
+                network protocol primarily used for providing shared access to files, 
+                printers, and serial ports across a network.
+
+                -> https://www.jscape.com/wp-content/uploads/scheduled20automated20file20share20to20windows20smb20file20share.png
+
+            -> NFS is for linux platforms
+
+                -> The Network File System (NFS) is an application-layer protocol that 
+                allows clients to access and manage files over a network as 
+                if they were stored on local drives. 
+                
+                -> It is widely used in Linux/UNIX environments.
+
+                -> https://blogs.sas.com/content/sgf/files/2017/11/DNFS1.png 
+
+        -> NOTE: Both SMB and NFS, cannot be used for OS, additional data.
+
+        -> NOTE: To overcome the issues with Azure Disks i.e Same Zone Locking can be fixed
+
+            -> Scenario 1 - Server in AZ-2 and Disk in AZ-1 (Issues, Doesn't work)
+
+        -> Azure Disk Limitations 
+
+            -> Using Azure Disk we cannot get the data directly across Multiple Availability Zones
+            -> Using Azure Disk we cannot connect to MULTIPLE INSTANCES at same time 
+            -> With Azure Disk Volumes, you can only scale up, but NO SCALING DOWN
+
+        -> NOTE: Above Issues with Azure Disks, can be fixed with Azure File Shares 
