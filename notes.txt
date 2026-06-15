@@ -1142,3 +1142,72 @@ Class - 14
             -> With Azure Disk Volumes, you can only scale up, but NO SCALING DOWN
 
         -> NOTE: Above Issues with Azure Disks, can be fixed with Azure File Shares 
+
+
+Class - 15
+==========
+
+    -> Azure Blob Storage 
+
+        -> Azure Blob Storage provides scalable, cost-efficient object storage in the cloud.  
+
+        -> When requirement is Low Cost Storage, go for Blob Storage 
+
+        -> Blob Storage supports internet based access directly, 
+        no need of any compute resource like virtual machines 
+
+        -> Go For Blob Storage, when you have vast amount of static data
+        (Images, Videos, Documents pdf, doc files etc)
+
+            -> Azure Disk 500 GB - $73.22
+
+            -> Azure File Share 500 GB - $59.14
+
+            -> Azure Blob Storage 500 GB - $11.44
+
+        -> https://www.baeldung.com/wp-content/uploads/sites/4/2023/03/blob_storage_architecture-2.png
+
+        -> We Have Containers & Blobs 
+
+            -> Containers are like Folders 
+
+            -> Blobs are like Files 
+
+        -> Using Blobs, Over Internet with Azure Portal is Straight Forward 
+
+        -> Using Blobs, Within VM's we need CLI Tools 
+
+            -> Install Azure CLI 
+
+            -> In Linux, Install with one command
+
+            -> az 
+
+            -> curl -fsSL 'https://azurecliprod.blob.core.windows.net/$root/deb_install.sh' | sudo bash
+
+            -> az 
+
+            -> az storage blob upload --account-name myntrasharedfiles --account-key paste-key-here --container-name images --name data.jpeg --file data.jpeg
+
+        
+        -> Access / Update Using Browser 
+
+            -> Directly via Browser 
+
+            -> Authentication With Username & Password
+
+        -> Access / Update Using Server  
+
+            -> If Linux Server do via Azure CLI 
+
+            -> Authentication With Access Key 
+
+        -> Access / Update Using Workstation  
+
+            -> If Windows Server do via Azure Storage Explorer 
+
+            -> Download Azure Storage Explorer 
+
+                -> https://azure.microsoft.com/en-us/products/storage/storage-explorer#Download-4
+
+            -> Authentication With Connection string
