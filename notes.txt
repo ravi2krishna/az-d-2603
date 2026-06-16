@@ -1211,3 +1211,85 @@ Class - 15
                 -> https://azure.microsoft.com/en-us/products/storage/storage-explorer#Download-4
 
             -> Authentication With Connection string
+
+
+Class - 16
+==========
+
+    -> Database Storage 
+
+        -> Databases Hold Sensitive Information and needs more Security 
+
+        -> Database as a software needs to run on a Virtual Machine 
+
+    -> Security For Virtual Machines
+
+        -> When we are talking about increased security, what we want to focus is 
+        placing Virtual Machines that holds Sensitive Data in Private Servers 
+
+            -> A Virtual Machine without Public IP is private 
+
+            -> A private VM cannot be Accessed From Internet,
+            can only be Accessed in intranet
+
+        -> NOTE: Making VM Private has some issues 
+
+            -> We cannot serve traffic to private instances as there is no
+            route to internet
+
+            -> We cannot Access Virtual Machines that are Private 
+
+        -> NOTE: Solution for above is Bastion / Jump Server 
+
+        
+        -> A bastion host (often called a jump server or jump box) is a highly secured server 
+        specifically designed to withstand cyber attacks. It acts as a dedicated gateway, 
+        allowing administrators to safely access private, isolated network resources 
+        from an external network like the public internet. 
+
+        -> Backend servers, like databases or internal application servers, 
+        are kept in private subnets without direct internet access for security. 
+        A bastion host solves the access problem without exposing those backend servers 
+        to threats.
+
+        -> NOTE: A Bastion acts as a portal to private Virtual Machines
+
+        -> How does it work ? 
+        
+            -> An administrator connects to the bastion host from an 
+            external computer using a secure protocol like SSH (for Linux) or RDP (for Windows).
+            
+            -> Once authenticated and inside the bastion host, the administrator uses it 
+            as a "stepping stone" to log into the private internal servers.
+            
+            -> The internal servers remain completely hidden from the internet.
+
+            -> https://discover.strongdm.com/hs-fs/hubfs/Imported_Blog_Media/605d2e18679dad4a2e0b7df4_StrongDM-1-AWS-bastion-host-user-flow-2.jpg?width=780&height=438&name=605d2e18679dad4a2e0b7df4_StrongDM-1-AWS-bastion-host-user-flow-2.jpg
+
+            -> https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT03rna3SEB9qtGTghyNbQ6yukX9ALmsmSlKr_w9MMw_Fjac5swhOq76QJk&s=10
+
+        
+        -> We Can Setup Bastion Manually By Creating VM or Use Azure Provided Bastion Service.
+
+            -> A bastion host is a traditional, self-managed virtual machine 
+            used as a secure gateway to access a private network. 
+            
+            -> Azure Bastion is a fully managed, cloud-native PaaS (Platform-as-a-Service) 
+            offered by Microsoft that replaces the need to 
+            manually build, patch, and maintain your own bastion VMs. 
+
+    
+
+
+
+
+
+
+    -> MySQL is a free, open-source relational database management system (RDBMS) 
+    that organizes data into tables and uses Structured Query Language (SQL) to manage it. 
+    Developed and maintained by Oracle Corporation, it is the world's 
+    most popular database engine for web applications, powering platforms like WordPress, 
+    e-commerce stores, and enterprise networks.
+
+
+
