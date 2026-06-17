@@ -1279,17 +1279,124 @@ Class - 16
             manually build, patch, and maintain your own bastion VMs. 
 
     
+Class - 17
+==========
 
+    -> Connect Private Database With Application Facing On Internet 
 
-
-
-
+        -> https://media.istockphoto.com/id/1227417874/vector/registration-form-and-login-form-page-template.jpg?s=1024x1024&w=is&k=20&c=TLLokn9YSx5E6cY55HSn_yToJ50F_8wHhAENqMzwFj0=
 
     -> MySQL is a free, open-source relational database management system (RDBMS) 
     that organizes data into tables and uses Structured Query Language (SQL) to manage it. 
     Developed and maintained by Oracle Corporation, it is the world's 
     most popular database engine for web applications, powering platforms like WordPress, 
     e-commerce stores, and enterprise networks.
+
+    
+    -> Application Server: Frontend Part To Take Request 
+
+        -> Public Server 
+
+        -> Java Application Server (Tomcat Server)
+
+        -> Apache Tomcat Server Runs On Port 8080 
+
+            -> Add Port 8080 from internet in Network Security Group 
+
+    
+    -> Database Server: Stores Data Coming From Application Server 
+
+        -> Private Server 
+
+        -> Database Engine is MySQL 
+
+        -> MySQL Database Runs On Port 3306 
+
+            -> Add Port 3306 from Application Server in Network Security Group 
+
+
+    -> IAAS - You Manage Everything Apart from Hardware 
+
+        -> Setup Private Virtual Machine 
+
+        -> Install OS 
+
+        -> Install Patches & Updates 
+
+        -> Download Database Software 
+
+        -> Install Database Software 
+
+        -> NOTE: Once Database Server Setup is done, then Developers will use 
+        Database Connection Details In Application 
+
+            -> Database Connection Details
+
+                -> Address (URL) Of Database 
+
+                -> Port Of Database
+
+                -> Username Of Database
+
+                -> Password Of Database
+
+    
+    -> Steps For Private Database Setup 
+
+        -> First Login To Bastion Server, then establish connection to Private Server
+
+        -> Verify MySQL Server in Database 
+
+            -> sudo ss -ntpl (No Port 3306)
+
+        -> Install MySQL Database Using Docker (For Fastness)
+
+            -> docker 
+
+            -> sudo apt update -y 
+
+            -> sudo apt install docker.io -y 
+
+            -> docker 
+
+            -> sudo docker run -dt --name mysql -e MYSQL_ROOT_PASSWORD=your_password --network=host mysql:5.7
+
+            -> sudo ss -ntpl (Now Port 3306 Is Running)
+
+        
+        -> To Verify Connectivity B/W Application Server & Database Server 
+
+            -> Login To App Server 
+
+            -> Install MySQL Client On Application Server and Check Connection With Database Server 
+
+                -> mysql 
+                
+                -> sudo apt update -y 
+
+                -> sudo apt install mysql-client -y 
+
+                -> sudo ss -ntpl 
+
+                -> mysql 
+                
+                -> telnet pvt-db-ip 3306
+
+                -> telnet 10.2.0.6 3306
+
+                -> mysql -h pvt-db-ip -u username(root) -p 
+
+                -> show databases;
+
+
+
+
+
+
+
+
+
+    
 
 
 
