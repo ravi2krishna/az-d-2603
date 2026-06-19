@@ -1359,7 +1359,7 @@ Class - 17
 
             -> docker 
 
-            -> sudo docker run -dt --name mysql -e MYSQL_ROOT_PASSWORD=your_password --network=host mysql:5.7
+            -> sudo docker run -dt --name mysql -e MYSQL_ROOT_PASSWORD=your_password --network=host --restart=always mysql:5.7
 
             -> sudo ss -ntpl (Now Port 3306 Is Running)
 
@@ -1389,14 +1389,165 @@ Class - 17
                 -> show databases;
 
 
+Class - 18
+==========
+
+    -> Application Setup Process 
+
+        -> First Setup Database Required For Application 
+
+            -> SHOW DATABASES;
+            -> CREATE DATABASE jwt;
+            -> SHOW DATABASES;
+            -> USE jwt;
+            -> SHOW TABLES;
+
+                CREATE TABLE `USER` (
+                `id` int(10) unsigned NOT NULL auto_increment,
+                `first_name` varchar(45) NOT NULL,
+                `last_name` varchar(45) NOT NULL,
+                `email` varchar(45) NOT NULL,
+                `username` varchar(45) NOT NULL,
+                `password` varchar(45) NOT NULL,
+                `regdate` date NOT NULL,
+                PRIMARY KEY (`id`)
+                ) ENGINE = InnoDB DEFAULT CHARSET = latin1;	 
+
+            -> SHOW TABLES;
+
+            -> DESC USER;
+
+            -> SELECT * FROM USER;
 
 
+        -> Second Part is Setup Java Tomcat Server 
 
+            -> Install Tomcat Server 
 
-
-
+                    -> sudo ss -ntpl 
+                    -> No Port 8080 Found (No Tomcat On Server)
+                    -> java 
+                    -> sudo apt update -y 
+                    -> sudo apt install openjdk-11* -y
+                    -> java
+                    -> wget https://archive.apache.org/dist/tomcat/tomcat-7/v7.0.94/bin/apache-tomcat-7.0.94.tar.gz
+                    -> tar xf apache-tomcat-7.0.94.tar.gz
+                    -> sudo ss -ntpl
+                    -> ~/apache-tomcat-7.0.94/bin/startup.sh 
+                    -> sudo ss -ntpl
+                    -> Browse Public-IP:8080 
+                    -> Browse Public-IP:8080/LoginWebApp 
+                        -> HTTP Status 404 – Not Found
 
     
+        -> Third Part is to Setup Java Web Application which communicates with Private Database
+
+            -> ls
+            -> No Application Code 
+            -> git clone -b aws https://github.com/ravi2krishna/aws-rds-java.git 	
+            -> ls
+            -> cd aws-rds-java
+
+            -> vi src/main/webapp/userRegistration.jsp
+
+                -> Change Database Address & Credentials 
+
+                    -> "jdbc:mysql://10.2.0.6:3306/jwt","root", "your_password"
+
+            -> vi src/main/webapp/login.jsp
+
+                -> Change Database Address & Credentials 
+
+                    -> "jdbc:mysql://10.2.0.6:3306/jwt","root", "your_password"
+
+            -> Build Application 
+
+                -> mvn package 
+
+                -> sudo apt install maven -y 
+
+                -> ls target
+
+                -> mvn package 
+
+                -> ls target
+
+            
+            -> Deploy Application On Tomcat 
+
+                -> Browse Public-IP:8080/LoginWebApp  
+
+                    -> HTTP Status 404 – Not Found
+
+                -> cp ~/aws-rds-java/target/LoginWebApp.war ~/apache-tomcat-7.0.94/webapps/
+
+                -> Browse Public-IP:8080/LoginWebApp  
 
 
+    -> Database As A Service 
 
+        -> PAAS 
+
+        -> Azure Database for MySQL flexible servers
+        
+            -> Proceed With Advanced Configuration 
+
+            -> Select Private Mode 
+
+        -> Now Update App Code With New Database Details 
+
+        -> URL, Username & Password 
+
+            -> URL - mydb123.mysql.database.azure.com
+            -> Username - ravi
+            -> Password 
+
+        -> From Tomcat Verify Connection
+        
+            -> mysql -h pvt-db-ip -u username(root) -p 
+
+            -> mysql -h mydb123.mysql.database.azure.com -u ravi -p 
+
+            -> Once Connection is Successful, repeat the same above process 
+
+
+        -> ls
+            -> No Application Code 
+            -> git clone -b aws https://github.com/ravi2krishna/aws-rds-java.git 	
+            -> ls
+            -> cd aws-rds-java
+
+            -> vi src/main/webapp/userRegistration.jsp
+
+                -> Change Database Address & Credentials 
+
+                    -> "jdbc:mysql://mydb123.mysql.database.azure.com:3306/jwt","ravi", "your_password"
+
+            -> vi src/main/webapp/login.jsp
+
+                -> Change Database Address & Credentials 
+
+                    -> "jdbc:mysql://mydb123.mysql.database.azure.com:3306/jwt","ravi", "your_password"
+
+            -> Build Application 
+
+                -> mvn package 
+
+                -> sudo apt install maven -y 
+
+                -> ls target
+
+                -> mvn package 
+
+                -> ls target
+
+            
+            -> Deploy Application On Tomcat 
+
+                -> Browse Public-IP:8080/LoginWebApp  
+
+                    -> HTTP Status 404 – Not Found
+
+                -> cp ~/aws-rds-java/target/LoginWebApp.war ~/apache-tomcat-7.0.94/webapps/
+
+                -> Browse Public-IP:8080/LoginWebApp  
