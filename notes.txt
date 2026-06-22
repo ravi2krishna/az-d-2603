@@ -1551,3 +1551,71 @@ Class - 18
                 -> cp ~/aws-rds-java/target/LoginWebApp.war ~/apache-tomcat-7.0.94/webapps/
 
                 -> Browse Public-IP:8080/LoginWebApp  
+
+
+Class - 19
+==========
+
+    -> High Availability 
+
+        -> High Availability in Azure ensures Applications are continuously 
+        Accessible & Operational (24X7) i.e Uptime 99.9% and Above 
+
+        -> We have to use Multiple Availability Zones 
+
+            -> NOTE: If we have only one server with application hosted, 
+            it might result in Single Point Of Failure 
+
+        -> To Route the traffic across Multiple Availability Zones 
+        we can use Load Balancer 
+
+            -> Load Balancing distributes client requests across multiple servers 
+            to ensure high availability 
+
+            -> Load Balancer also provides you Reverse Proxy Capabilities 
+
+                -> A Reverse Proxy sits in front of frontend i.e web servers 
+                acting as an Intermediate component to manage the incoming 
+                traffic from clients 
+
+                -> A Reverse Proxy enhances security by masking Origin Server IP's 
+
+            -> NOTE: We do have third party tools to achieve this like Nginx, HA Proxy, Cloudflare etc 
+
+                -> https://nginx.org/en/docs/http/load_balancing.html
+
+                -> https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/
+
+            -> https://i.sstatic.net/6qeu7.jpg
+
+
+
+    -> Fault Tolerance 
+
+        -> Fault Tolerance in Azure refers to the ability of a system to continue 
+        operating without interruption in the event of hardware failures
+
+        -> Fault Tolerance is associated with Self Healing 
+
+
+
+    -> Scalability 
+
+        -> Scalability in Azure refers to the ability of a system to handle 
+        increasing workloads and accommodate according to growing demands.
+
+            -> Scale Up or Scale Down automatically, based on demand 
+
+
+        -> Azure Virtual Machine Scale Sets (VMSS)    
+
+            -> VMSS helps you create a group of Load Balanced VM's 
+
+            -> These VM's can automatically Increase Or Decrease in 
+            response to demand 
+
+    -> High Availability: Load Balancer 
+
+    -> Fault Tolerance & Scalability: VMSS 
+
+
