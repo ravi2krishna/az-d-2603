@@ -1619,3 +1619,9 @@ Class - 19
     -> Fault Tolerance & Scalability: VMSS 
 
 
+Class - 20
+==========
+
+    -> Implement High Availability, Fault Tolerance & Scalability 
+
+    
