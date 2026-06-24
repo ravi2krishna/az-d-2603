@@ -1624,4 +1624,193 @@ Class - 20
 
     -> Implement High Availability, Fault Tolerance & Scalability 
 
+
+Class - 21
+==========
+
+    -> What Is DevOps ? 
+
+        -> DevOps is a set of "PRACTICES" that works to "AUTOMATE" and "INTEGRATE"
+        the process between Software Development (Dev) and IT Operations(Ops) Teams.
+
+
+    -> Development(Dev) Team
+
+        -> To "Build Applications", we need roles like 
+
+            -> Software Architects 
+            -> Softwares Developers 
+            -> Softwares Testers 
+            -> etc 
+
+    -> IT Operations(Ops) Team
+
+        -> To "Build Infrastructure" & "Maintain Applications", we need roles like 
+
+            -> System Admin
+            -> Network Admin 
+            -> Cloud Admin 
+            -> etc 
+
     
+    -> DevOps Engineer 
+
+        -> DevOps Engineers will implement DevOps "PRACTICES" Using "TOOLS", 
+        so that organizations can Build, Test & Deploy (Delivery Line) 
+        Softwares More "FASTER" & "RELIABLE".
+
+
+    -> DevOps "PRACTICES"                               ==>            DevOps "TOOLS"
+
+        -> Version Control System (VCS)                 ==>            Git 
+
+            -> For Tracking Code 
+
+            -> Happens inside Developers Laptop - Local To Individual Developers 
+
+        
+        -> Source Code Management (SCM)                 ==>            GitHub
+
+            -> For Storing Multiple Versions Of Code 
+
+            -> Happens inside Organization Repositories  - Central To All Developers 
+
+        
+        -> Containerization                             ==>            Docker 
+
+            -> For Getting Acceleration i.e Making "FASTER"
+
+        
+        -> Orchestration                                ==>            Kubernetes
+
+            -> For Getting Reliability 
+
+            -> Reliable means running Applications without Downtime 
+            i.e Production Environments needs Reliability 
+
+        
+        -> etc 
+
+    
+    -> To Learn DevOps 
+
+        -> Application / Software - Project 
+
+            -> SDLC - Software Development Life Cycle 
+
+                -> Requirement -> Design -> Code -> Test -> Release -> Deploy 
+
+        
+        -> Servers (Cloud Computing - Azure VM's)
+
+            -> Rather than buying Physical Servers, we will rent Virtual Servers 
+            on Azure Platform for Cost Effective Learning 
+
+
+        -> Understanding Of Command Liner Interface - CLI 
+
+            -> We are used to working with Graphical User Interface - GUI 
+            i.e using Screens, Menus & Options to perform tasks on computers 
+            i.e create files, install application etc 
+
+            -> Now as a DevOps Engineer, you need to perform tasks on Servers using CLI
+            i.e create files, install application etc 
+
+
+
+    -> When we start Developing Project 
+
+        -> SDLC 
+
+            -> Software Development Life Cycle is a process followed by 
+            software development teams to design, develop and test high-quality software.
+
+            -> SDLC Consists Of Multiple Stages Such as 
+
+                -> Requirement -> Design -> Code -> Build -> Test -> Release -> Deploy 
+
+                -> NOTE: From DevOps Context 
+
+                    -> Code -> Build -> Test -> Deploy (Concept Point Of View)
+
+                    -> Build & Deploy (Implementation Point Of View)
+
+        
+    
+    -> Requirement
+
+        -> Build LMS - Learning Management System 
+
+            -> Three Tier Application Architecture 
+
+                -> One thing the "most visited websites" have in common is that they are 
+                dynamic websites. Their development typically involves server-side coding, 
+                client-side coding and database technology.
+
+            -> Most Popular Applications
+                
+                -> https://en.wikipedia.org/wiki/Programming_languages_used_in_most_popular_websites
+
+            -> NOTE: Even Our Application Learning Management System will also be having 
+            Three Tier Application Architecture  
+
+    
+    -> Design 
+
+        -> https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDQUoPWXFKaYqBQbC5tJwbUMYy1FxRXid56E44uloNmILhTjeYSM2lbVMJ&s=10
+
+        -> https://www.sketchappsources.com/resources/source-image/learning-management-system.png
+
+        -> https://s3-alpha.figma.com/hub/file/5585016792/25da91fc-1cae-497a-baa6-c26b29134142-cover.png
+
+
+    -> Code 
+
+        -> Developers will use "Git" tool to track code and
+        eventually "Push Code" To "GitHub"
+
+            -> https://d2ds8yldqp7gxv.cloudfront.net/Blog+Explanatory+Images/How+to+use+github+1.webp
+
+    
+    
+    -> Begin Building LMS - Learning Management System 
+
+        -> Development Team 
+
+            -> Development Team mainly focuses on building applications 
+
+                -> Development Means Coding 
+
+
+    -> Version Control System (VCS)        
+
+        -> Version control / Revision control / Source control
+        is a process that helps to "keep track of changes" made to 
+        files (computer programs, web site files, documents etc)
+
+        -> https://www.sirhow.com/uploads/2023/07/check-gpay-transaction-history-step-4.jpg
+
+        -> Advantage Of VCS is Revert Changes To Previous Working Versions, 
+        if there are issues in new version
+
+            -> https://notepad-plus-plus.org/downloads/
+
+            -> Versions == Transaction ID's == Commit ID's (Git)
+
+    
+    -> To Implement Version Control System, We need "Git" Software / Tool 
+
+        -> Git Helps in Tracking Code / Changes In Your Code 
+
+        -> Git Tracks Code in your Laptop
+
+        -> Git will generate Commit ID's for every change we make in code 
+        (just like every transaction generated in UPI Apps)
+
+    
+    -> All transactions made will be stored in a server, 
+    similarly we store all Commit ID's in Source Code Management (SCM) like server 
+
+        -> Mobile Phone -> Google Pay -> Bank Server (Transaction ID's)
+
+        -> Laptop -> Git -> GitHub (Commit ID's)
