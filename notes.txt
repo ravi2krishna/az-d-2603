@@ -1814,3 +1814,76 @@ Class - 21
         -> Mobile Phone -> Google Pay -> Bank Server (Transaction ID's)
 
         -> Laptop -> Git -> GitHub (Commit ID's)
+
+
+Class - 22
+==========
+
+    -> Repository 
+
+        -> A repository contains all of your "project's files" and each file's revision history. 
+        Developers can discuss and manage your project's work within the repository.
+
+        -> https://github.com/notepad-plus-plus/notepad-plus-plus
+
+
+    -> JIRA (Proprietary)
+
+        -> Jira is a proprietary product developed by Atlassian that allows 
+        bug tracking, issue tracking and agile project management. 
+
+        -> https://images.ctfassets.net/xjcz23wx147q/2vuHCsAF3tUpzYykEb9GAX/11fb10694a339636aceb9f531f11e49f/Kanban-updated.png
+
+    
+    -> GitHub Projects & Issues (FREE)
+
+        -> GitHub Projects are a feature within GitHub designed for 
+        "planning and tracking work"
+
+        -> GitHub Issues is a built-in, lightweight issue-tracking system in 
+        every repository used for planning, discussing, and tracking work like 
+        bug reports, new features, and tasks.
+
+            -> Within Projects We Have Issues 
+
+            -> https://everhour.com/blog/wp-content/uploads/2017/05/github-zenhub-1024x433.png
+
+    
+    -> Start LMS Project (Development - Developer)
+
+        -> Create GitHub Account 
+
+            -> https://github.com
+
+        -> Create Repository 
+
+            -> https://github.com/ravi2krishna/logind-2603.git
+
+        -> Assign Work To Developers - Projects & Issues 
+
+            -> Project - https://github.com/users/ravi2krishna/projects/16/views/1
+
+            -> Issues - https://github.com/ravi2krishna/logind-2603/issues
+
+        
+        -> As Work Is Assigned, Developers Will Start Coding - Versioning Starts 
+
+            -> Install Git Software In Laptop For Versioning
+
+                -> Open GitBash 
+
+                -> Set Git Configuration 
+
+                    -> git config --global user.name github_id 
+                    -> git config --global user.email github_email_id 
+
+            
+            -> Install Visual Studio Code (VS Code) - To Write Code 
+
+                -> Start Coding Here based on Issues / Features Assigned 
+
+            -> Developers Use Git Workflow and update code finally To GitHub 
+
+
+
+
