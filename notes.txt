@@ -1885,5 +1885,181 @@ Class - 22
             -> Developers Use Git Workflow and update code finally To GitHub 
 
 
+Class - 23
+==========
+
+    -> Implement Issue / Feature Assigned To Developer 
+
+        -> Start Coding 
+
+        -> Completed Coding 
+
+        -> Developer Will Raise PR (Pull Request) 
+
+        -> Owner Will Approve The PR (Pull Request) i.e Application Is On GitHub Repository 
 
 
+    -> With Above Implementation, we can say Development is Completed 
+
+    -> Can Customers / Clients Access this Application from GitHUb ? 
+
+        -> https://github.com/ravi2krishna/logind-2603.git
+
+        -> Customers Cannot Access Applications from GitHub 
+
+    
+    -> We need servers to host / deploy Applications, 
+    so that Customers / Clients Access this Application 
+    anywhere from internet.
+
+        -> This Activity Requires "Operational" Related Knowledge 
+
+
+    -> Servers 
+
+        ->  A Server is a "computer system" that provides data or services 
+        to others computers, known as "clients" over a network.
+
+            -> https://upload.wikimedia.org/wikipedia/commons/c/c9/Client-server-model.svg
+
+        -> Laptop / Desktop can be used by only one person at a time.
+
+        -> Servers can be used by Multiple Persons (Clients) at a time     
+
+    
+    -> Physical Server 
+
+        -> Physical Server is hosted on Physical Datacenter / On-prem Datacenter 
+
+    -> Virtual Server / Cloud Server 
+
+        -> Virtual Server / Cloud Server is hosted on Virtual Datacenter / Cloud Datacenter 
+
+    -> NOTE: Any Type Of Server has Components i.e Physical / Virtual / Cloud 
+
+        -> CPU (processor) + RAM (memory) + HDD (Disk) + Network 
+
+        -> Operating System (Linux OS - Ubuntu)
+
+        -> Server Softwares 
+
+            -> Web Server: Hosts Web Pages / Web Applications Over Internet 
+
+                -> Examples: Apache Web Server, Nginx Web Server, IIS Server etc 
+
+            -> Database Server: Hosts Application Data & Transactions 
+
+                -> Examples: MySQL Server, Postgres Server, Oracle DB Server etc 
+
+            -> Email Server: Hosts Email Services, To Send and Receive Emails 
+
+                -> Examples: Postfix Server, SendMail, SendGrid etc 
+
+
+        -> Server Setup On Azure Cloud 
+
+        -> Server == Azure Virtual Machine (VM)
+
+        -> Server will be part of Network 
+
+            Network == Azure Virtual Network (VNET)
+
+        -> Azure Virtual Machine will be part of Azure Virtual Network  
+
+        -> Firewall 
+
+           -> A firewall is a network security system that monitors and controls 
+           network traffic based on predetermined security rules (protocols)
+
+           -> SSH protocol: Secure Shell Used for remote login, command execution
+
+                -> Port: 22
+
+           -> HTTP protocol: Hypertext Transfer Protocol Used For data exchange on the World Wide Web
+
+                -> Port: 80 
+
+        -> Firewall == Azure Network Security Group (NSG)
+
+
+    -> CLI - Command Line Interface
+
+        -> CLI is a powerful tool for interacting with servers 
+        through "text based commands" 
+
+        -> CLI is very helpful in "Automating Repetitive Tasks"
+
+
+    -> Web Server 
+
+        -> A web server is computer software [ Nginx HTTP Server ] 
+        and underlying hardware [ AWS Instance / AZURE VM ] 
+        that accepts requests via HTTP (port 80) 
+        to distribute web content.
+
+        -> NOTE: All Servers that host websites must have web server program.
+
+    -> Commands To Work With Web Application Deployment 
+
+        -> Check Internally 
+
+            -> Command To Check, Which Port is in use by which Service 
+
+                -> sudo ss -ntpl 
+
+                -> Web Servers run on Port 80 and we don't see port 80 with above command 
+
+        -> Check Externally     
+
+            -> Browse Public IP Address Of Linux Server Created 
+
+                -> This site can’t be reached, indicates No Web Server has been Installed 
+
+    -> Install Web Server Nginx 
+
+        -> sudo apt update -y 
+
+        -> sudo apt install nginx -y 
+
+        -> sudo ss -ntpl 
+
+        -> Browse Public IP Address
+
+    -> How To Host Our Application ?
+
+        -> For Web Servers, we have DocumentRoot i.e location 
+        where web pages will be loaded from /var/www/html 
+
+        -> ls /var/www/html
+
+        -> index page is called Landing Page Of Application 
+
+        -> cat /var/www/html/index.nginx-debian.html
+
+    -> Repository URL: https://github.com/ravi2krishna/logind-2603.git
+
+    -> Clone Repository Using CLI 
+
+        -> sudo git clone <url> <destination> 
+
+        -> sudo git clone https://github.com/ravi2krishna/logind-2603.git /var/www/html
+
+            -> fatal: destination path '/var/www/html' already exists and is not an empty directory.
+
+        -> not an empty directory, so let's make it empty 
+
+            -> sudo rm -rf /var/www/html
+
+            -> sudo git clone https://github.com/ravi2krishna/logind-2603.git /var/www/html
+
+            -> ls /var/www/html
+
+                -> README.md  img_avatar2.png  index.html (success)
+
+            -> Browse Public IP Address
+
+    -> To Work With SSL Certificates 
+
+        -> https://certbot.eff.org/instructions?ws=nginx&os=snap  
+
+    -> NOTE: Delete Server / VM Once Lab is Completed
