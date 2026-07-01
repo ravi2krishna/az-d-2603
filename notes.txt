@@ -2233,3 +2233,90 @@ Class - 25
     -> For SonarQube Installation, We Need Docker tool 
 
         -> docker 
+
+
+Class - 26
+==========
+
+    -> Static Code Analysis Continued 
+
+        -> docker 
+
+        -> ls 
+
+        -> wget -O get-docker.sh https://get.docker.com && sh get-docker.sh
+
+        -> ls 
+
+        -> docker
+
+    
+    -> Install SonarQube 
+
+        sudo ss -ntpl
+        sudo docker container run -dt --name sonarqube --restart=always -p 9000:9000 sonarqube
+        sudo ss -ntpl
+
+    
+    -> Browse SonarQube, with port 9000 in browser -> pub_ip_address:9000 
+
+    
+    -> Default Credentials 
+
+        -> Username is admin 
+
+        -> Password is admin 
+
+
+    -> LMS Project Repository 
+
+        -> https://github.com/ravi2krishna/lms-v1.git
+
+    
+    -> GitHub Fork 
+
+        -> Forking a repository, means creating a copy of the repository in other accounts 
+
+        -> NOTE: Fork Above Project To Your GitHub Accounts 
+
+        -> https://github.com/markfelixmenezes/lms-v1.git
+
+    
+    
+    -> Performing Code Analysis On Above Project 
+
+        ls 
+        git clone -b dev https://github.com/markfelixmenezes/lms-v1.git
+        ls 
+        ls lms-v1
+        cd lms-v1/webapp
+        ls 
+
+        sudo docker run  --rm -e SONAR_HOST_URL="http://20.3.233.78:9000" -v ".:/usr/src" sonarsource/sonar-scanner-cli -Dsonar.token=sqp_175ae8876ed72630181591495c009c3a5b002153 -Dsonar.projectKey=lms
+
+            -> NOTE: For above command, replace your SonarQube Address, Token & Project Key 
+
+
+        -> NOTE: Once LAB is done with Sonar Analysis, Delete SonarQube Server 
+
+
+    
+    -> Build Management 
+
+        -> The term "build" may refer to the "process"
+        in which "Source Code" is Converted into "Binary Code" (Artifacts)
+
+
+        -> In DevOps, the software build process is a foundational component of the 
+        Continuous Integration and Continuous Delivery (CI/CD) pipeline, 
+        serving as a critical automated step that transforms 
+        source code into a deployable product.
+
+        -> Notepad++ Source Code - https://github.com/notepad-plus-plus/notepad-plus-plus
+
+            -> After Building, Will Get Artifacts (Useable Software)
+
+        -> Binary Application - https://notepad-plus-plus.org/downloads/
+
+    
+
