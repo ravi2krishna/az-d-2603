@@ -2499,3 +2499,36 @@ Class - 27
             -> sudo cp -r ~/lms-v1/webapp/dist/*  /var/www/html/
             -> ls /var/www/html/
             -> ls dist 
+
+Class - 28
+==========
+
+    -> Build & Deploy LMS App 
+
+    -> For Troubleshooting 
+
+        -> Check In "ubuntu" user Session
+
+            -> sudo ss -ntpl
+            -> sudo systemctl stop postgresql
+            -> sudo ss -ntpl
+            -> sudo systemctl start postgresql
+            -> sudo ss -ntpl
+
+            -> sudo ss -ntpl
+            -> go to backend session
+                -> control + c 
+            -> sudo ss -ntpl
+            -> node build/index.js
+            
+            -> Check In "ubuntu" user Session
+            -> sudo ss -ntpl
+            -> sudo systemctl stop nginx
+            -> sudo ss -ntpl
+            -> Check Application in Browser
+            -> sudo systemctl start nginx
+            -> sudo ss -ntpl
+            -> Check Application in Browser
+
+    -> NOTE: Terminate Server Once Lab is done
+
