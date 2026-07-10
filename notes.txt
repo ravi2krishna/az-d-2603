@@ -2532,3 +2532,166 @@ Class - 28
 
     -> NOTE: Terminate Server Once Lab is done
 
+
+Class - 29
+==========
+
+    -> Project - 1 (LMS Application)
+
+        -> Code -> Build -> Code Analysis -> Deploy 
+
+    -> NOTE: Next Goal is to Implement DevOps Practices On Our Project i.e LMS Application 
+
+    -> DevOps is a set of PRACTICES that works towards the 
+    "AUTOMATION" and "INTEGRATION" of the processes between 
+    Software Development (Dev) and IT (Ops) teams, 
+    so that organizations can "BUILD", "TEST" and "DEPLOY" 
+    softwares/applications "FASTER" and more "RELIABLE"
+
+    -> DevOps Engineer 
+
+        -> DevOps Engineers will implement DevOps "PRACTICES" Using "TOOLS", 
+        so that organizations can Build, Test & Deploy (Delivery Line) 
+        Softwares More "FASTER" & "RELIABLE".
+
+    
+    -> Project - 1 (LMS Application)
+
+        -> Above Project Took around 1 Hour To Deploy 
+
+    -> From DevOps Team, Organizations are Looking for Acceleration i.e making 
+    Deployments "FASTER"   
+
+    -> From our earlier experience, Using SonarQube Takes 45 mins Traditionally 
+
+        -> We Used Docker got the same thing done is 5 Mins 
+
+    -> Why Shouldn't we Apply Docker On LMS Application ?? 
+
+        -> LMS Application Process (Dev To Ops) --> Traditionally Takes 2 Hours 
+
+        -> LMS Application Process (Dev To Ops) --> Docker Takes 5-10 mins 
+
+
+        -> docker container run -dt --name sonarqube --restart=always -p 9000:9000 sonarqube ??? 
+
+    -> NOTE: To Accelerate Development & Deployment Process, 
+    We will use "Containerization" Practice 
+
+
+    -> Project - 2 
+
+        -> As a DevOps Engineer, Implement Acceleration i.e FASTER Deployments 
+        Using Containerization Practice 
+
+    
+    -> Containerization
+
+        -> Containerization is one of the practices in devops, which provides 
+
+            -> "Lightweight" and "Efficient" way of running applications 
+            
+            -> Promotes "Faster Deployments" and "Portability" for applications
+
+        -> https://substackcdn.com/image/fetch/$s_!t0Wm!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F14409324-6525-49f9-85b5-ea416d4efffb_2556x1383.jpeg
+
+        -> NOTE: Containerization Is Implemented Using Docker Software/Tool 
+
+
+    -> Container 
+
+        -> An object for holding or transporting something 
+
+            -> https://upload.wikimedia.org/wikipedia/commons/d/df/Container_01_KMJ.jpg     
+
+        -> In terms of software development, a container is an object 
+        for holding or transporting/shipping applications.
+
+            -> https://cdn.prod.website-files.com/67615512eed3697e5e735df6/67c1d375b94ef6458106170b_vrGMCnHTQY2TKkXLNFbx.jpeg
+
+    
+    -> Monolithic Architecture
+
+        -> Monolithic architecture is a software design pattern where the entire application 
+        is built as a "single, indivisible unit".
+
+        -> https://img.favpng.com/25/1/18/microservices-nginx-monolithic-application-domain-driven-design-reverse-proxy-png-favpng-w2rapqPnDTMhzWnRp1SnfFUvi.jpg
+
+        -> Tight Coupling
+
+    -> Micro Services Architecture
+
+        -> Microservices Architecture is a software development approach that involves 
+        building "small, independent services" that work together to create a larger application.
+
+        -> https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Ft1ien7stu2l7v1u7mfjl.png
+
+        -> Loose Coupling 
+
+    
+    -> NOTE: Developers Will Create Microservices 
+
+    -> NOTE: As DevOps Engineer, Deploying Micro Sized Applications(Microservices)
+    On Containers is your Primary Work On Projects 
+
+        -> Containerization "Lightweight" and "Efficient" way of running applications
+
+
+    -> Docker Architecture / Docker Components 
+
+        -> Docker Client (CLI)
+
+        -> Docker Server (Daemon)
+
+        -> Docker Registry (Docker Hub - https://hub.docker.com/)
+
+        -> Docker Images 
+
+        -> Docker Containers 
+
+        -> https://assets.bytebytego.com/diagrams/0414-how-does-docker-work.png
+
+    
+        -> Python is Programming "Language" 
+
+        -> SonarQube is Code Analysis "Tool" 
+
+        -> Ubuntu is "Operating System" 
+
+        -> Postgres is "Database"
+
+    -> NOTE: All the above are present in Docker Registry As Images - https://hub.docker.com
+
+        -> Python is an Image
+
+        -> SonarQube is an Image
+
+        -> Ubuntu is an Image
+
+        -> Postgres is an Image
+
+
+    -> NOTE: All the above images are Stored in Docker Registry,
+    Just like Different Applications Stored in Play Store / IOS Store 
+
+    -> If an Application is not available on Play store, we can Build.
+
+    -> Same way we can Build Our OWN CUSTOM Images and make them available on 
+    Docker Registry 
+
+
+    -> Docker Images are Like Templates / Blue Prints 
+
+    -> Docker Containers are Real Entities 
+
+        -> NOTE: To create container, we need Image 
+
+        -> Image 
+        
+            -> https://s3.amazonaws.com/gc-p/screenshots/pics/68446cebb1c92aa555eca8fbff217689/large.jpg
+
+        -> Containers 
+
+            -> https://cdn.mos.cms.futurecdn.net/Drifb4WGUoCj2gVUo2BQnG-1540-80.jpg
+
+            -> https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/2018_BMW_M5_Automatic_4.4.jpg/1280px-2018_BMW_M5_Automatic_4.4.jpg
