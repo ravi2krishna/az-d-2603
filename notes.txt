@@ -2844,3 +2844,221 @@ Class - 30
 
             -> docker container ls -a
 
+
+Class - 31
+==========
+
+    -> Container Management Commands 
+
+        -> Just Like Servers
+
+            -> Create / Start / Stop / Remove 
+
+        -> With Containers We Can 
+
+            -> Create / Start / Stop / Remove 
+
+            -> Create 
+
+                -> docker container run -dt --name my-container ubuntu 
+
+            -> Stop 
+
+                -> docker container stop name_of_container
+                -> docker container stop id_of_container
+
+            -> Start  
+
+                -> docker container start name_of_container
+                -> docker container start id_of_container
+
+            -> Remove 
+
+                -> docker container rm name_of_container
+                -> docker container rm id_of_container
+
+    -> To Interact With Background Containers 
+
+        -> docker container exec name_of_container command_to_execute 
+
+        -> docker container exec -it name_of_container bash 
+
+        -> exit 
+
+        -> docker container ls -a
+
+            -> NOTE: Container is still running, Unlike Interactive Mode 
+    
+    -> NOTE: Earlier after creating Server, We Deployed Applications On Server 
+
+        -> For Example We had Login Application Deployed On Server 
+
+            -> Create Server 
+            -> Update System
+            -> Installed Nginx Web Server
+            -> Fetched Application Code 
+            -> Deploy Application Code On Nginx Web Server 
+
+    
+    -> Setup Login Application On Container
+
+        -> docker container run -dt --name web-app ubuntu  
+
+        -> docker container ls -a
+
+        -> docker container exec -it web-app bash 
+
+        -> ss -ntpl 
+
+        -> apt update -y 
+
+        -> apt install iproute2 -y
+
+        -> ss -ntpl 
+
+        -> apt install nginx -y
+
+        -> service nginx start 
+
+        -> ss -ntpl 
+
+        -> NOTE: Nginx is Running Confirmed 
+
+    
+    -> How To Access Web Server From Customers Aspect 
+
+        -> NOTE: Earlier we Browsed IP Address Of Server 
+
+            -> This site can’t be reached
+
+        -> NOTE: Now Nginx Web Server Is in Container not on Host 
+
+
+    -> Check Container Properties 
+
+        -> docker container inspect name_of_container
+
+        -> docker container inspect web-app 
+
+            -> "IPAddress": "172.17.0.2"
+
+            -> NOTE: Above IP Address is Private, cannot be accessed from Internet
+
+            -> NOTE: Above IP Address is Private, Works In Intranet (inside host only)
+
+            -> curl 172.17.0.2
+
+
+
+    -> New Requirement 
+
+        -> Customer-1: We Have Ecommerce Application, which requires a Web Server 
+
+        -> Customer-2: We Have LMS Application, which requires a Web Server 
+
+        -> Customer-3: We Have CRM Application, which requires a Web Server 
+
+        -> Customer-4: We Have HRMS Application, which requires a Web Server 
+
+
+    -> NOTE: With Earlier Approach(Server Aspect), We need to have Four Different Server 
+
+        -> Server-1: Ecommerce Application
+
+        -> Server-2: LMS Application
+
+        -> Server-3: CRM Application
+
+        -> Server-4: HRMS Application
+
+
+    -> NOTE: Now With Docker Approach(Container Aspect), We need to have Four Different Containers  
+
+        -> Container-1: Ecommerce Application
+
+        -> Container-2: LMS Application
+
+        -> Container-3: CRM Application
+
+        -> Container-4: HRMS Application
+    
+
+    -> Setup Ecommerce Application On Container
+
+        -> docker container run -dt --name Ecommerce-app ubuntu  
+
+        -> docker container ls -a
+
+        -> docker container exec -it Ecommerce-app bash 
+
+        -> ss -ntpl 
+
+        -> apt update -y 
+
+        -> apt install iproute2 -y
+
+        -> ss -ntpl 
+
+        -> apt install nginx -y
+
+        -> service nginx start 
+
+        -> ss -ntpl 
+
+        -> NOTE: Nginx is Running Confirmed 
+
+    
+    -> Setup LMS Application On Container
+
+        -> docker container run -dt --name LMS-app ubuntu  
+
+        -> docker container ls -a
+
+        -> docker container exec -it LMS-app bash 
+
+        -> ss -ntpl 
+
+        -> apt update -y 
+
+        -> apt install iproute2 -y
+
+        -> ss -ntpl 
+
+        -> apt install nginx -y
+
+        -> service nginx start 
+
+        -> ss -ntpl 
+
+        -> NOTE: Nginx is Running Confirmed 
+
+    
+    -> Setup CRM Application On Container
+
+        -> docker container run -dt --name CRM-app ubuntu  
+
+        -> docker container ls -a
+
+        -> docker container exec -it CRM-app bash 
+
+        -> ss -ntpl 
+
+        -> apt update -y 
+
+        -> apt install iproute2 -y
+
+        -> ss -ntpl 
+
+        -> apt install nginx -y
+
+        -> service nginx start 
+
+        -> ss -ntpl 
+
+        -> NOTE: Nginx is Running Confirmed 
+
+
+    -> NOTE: With above approach, we need to do Redundant Actions,
+    that is why it's not a good approach for Containers 
+
+    
