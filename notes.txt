@@ -3061,4 +3061,218 @@ Class - 31
     -> NOTE: With above approach, we need to do Redundant Actions,
     that is why it's not a good approach for Containers 
 
+
+Class - 32
+==========
+
+    -> Below Approach is Recommended Way Of Creating Containers 
+
+    -> GOAL: Deploying Web Applications, For Which We Need Web Server 
+
+    -> NOTE: All the above are present in Docker Registry As Images - https://hub.docker.com
+
+        -> Python is an Image
+
+        -> SonarQube is an Image
+
+        -> Ubuntu is an Image
+
+        -> Postgres is an Image
+
     
+    -> Recommended Way Of Creating Containers 
+
+        -> docker container run -dt --name Ecommerce-app nginx  
+
+            -> docker container inspect Ecommerce-app
+
+            -> curl 172.17.0.2
+
+        -> docker container run -dt --name LMS-app nginx 
+
+            -> curl 172.17.0.3 
+
+        -> docker container run -dt --name CRM-app nginx 
+
+            -> curl 172.17.0.4 
+
+        -> docker container run -dt --name HRMS-app nginx  
+
+            -> curl 172.17.0.5 
+
+    
+    -> NOTE: Now How Can We Make Customers / End Users Access Web Applications
+    inside the Containers From Internet ?? 
+
+
+    -> To Access Containers From Internet, We need to understand "Docker Networking"
+
+    -> Docker Provides Following Network Drivers 
+
+        -> Host Network Driver 
+
+        -> None Network Driver 
+
+        -> Bridge Network Driver(*)
+
+
+    -> Host Network Driver
+
+        -> The host network driver in Docker removes network isolation 
+        between a container and its host, allowing the container to 
+        share the host's networking namespace directly.
+
+        -> The container does not get its own IP address; 
+        instead, it uses the host's IP address.
+
+
+        -> docker network ls 
+
+        -> NOTE: By Default All Containers Use Bridge Network (a78747cc2424)
+
+        -> docker container inspect container_name 
+
+        -> docker network inspect network_name 
+
+        -> docker network inspect bridge 
+
+        -> Create Container In Networks 
+
+            -> docker container run -dt --name web-app --network=nw_name nginx 
+
+            -> sudo ss -ntpl (checking on host level)
+
+            -> docker container run -dt --name web-app --network=host nginx  
+
+            -> docker container ls -a
+
+            -> docker container inspect web-app
+
+            -> docker network inspect host 
+
+            -> sudo ss -ntpl (checking on host level)
+
+            -> sudo systemctl status nginx
+                
+                Unit nginx.service could not be found
+
+        -> NOTE: Port Conflicts: Because the container uses the host's ports, 
+        you cannot run two containers that use the same port.
+
+        
+            -> docker container run -dt --name LMS-app --network=host nginx  
+
+            -> docker container ls -a
+
+            -> docker container run -dt --name CRM-app --network=host nginx  
+
+            -> docker container ls -a
+
+        
+        -> NOTE: Check Container Logs Using 
+
+            -> docker container logs web-app
+
+            -> docker container logs LMS-app
+
+            -> docker container logs CRM-app
+
+        
+
+    -> None Network Driver 
+
+        -> The "none" network driver in Docker provides complete 
+        network isolation by disabling all networking for a container.
+
+        -> The container cannot reach external networks, 
+        and no external network can reach the container.
+
+        -> Docker does not assign any IP address to containers using this driver.
+
+        -> docker network ls 
+
+        -> docker network inspect none  
+
+        -> docker container run -dt --name no-app --network=none nginx
+
+        -> docker container ls -a 
+
+        -> docker container inspect no-app
+
+        -> docker network inspect none 
+
+    
+
+    -> Bridge Network Driver(*)
+
+        -> Bridge Network Driver is default network driver for containers. 
+        When a new container is Created, it's attached to the Bridge network.
+
+        -> Using bridge network we can run multiple containers at same time
+        that can reach external networks as well as 
+
+        -> To allow external access to Containers we use Port Publishing/Forwarding. 
+
+        -> Port Publishing: To make a container service accessible from outside the host, 
+        you must map a host port to a container port using the -p or --publish flag.
+
+            -> This is the activity that makes a "port inside a container" 
+            accessible to "ports on the Docker host" for external access.
+
+
+        -> -P for ephemeral ports (predefined range 32768 to 61000)
+
+            -> docker container ls -a
+
+            -> docker container run -dt --name app1 -P nginx 
+
+            -> docker container ls -a
+
+            -> docker container run -dt --name app2 -P nginx 
+
+            -> docker container ls -a
+
+            -> docker container run -dt --name app3 -P nginx 
+
+            -> docker container ls -a
+
+        
+        
+        -> -p for user defined ports (user defined range 8080 to 9090)
+
+            -> docker container ls -a
+
+            -> docker container run -dt --name app4 -p 8080:80 nginx 
+
+            -> docker container ls -a
+
+            -> docker container run -dt --name app5 -p 8081:80 nginx 
+
+            -> docker container ls -a
+
+            -> docker container run -dt --name app6 -p 8082:80 nginx 
+
+            -> docker container ls -a
+
+
+
+    -> NOTE: Now With Docker Approach(Container Aspect), We need to have Four Different Containers  
+
+        -> Container-1: Ecommerce Application
+
+            -> docker container run -dt --name Ecommerce -p 8085:80 nginx 
+
+        -> Container-2: LMS Application
+
+            -> docker container run -dt --name LMS -p 8086:80 nginx 
+
+        -> Container-3: CRM Application
+
+            -> docker container run -dt --name CRM -p 8088:80 nginx 
+
+        -> Container-4: HRMS Application   
+
+            -> docker container run -dt --name HRMS -p 8090:80 nginx  
+
+            
+
