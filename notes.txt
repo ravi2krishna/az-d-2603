@@ -3275,4 +3275,74 @@ Class - 32
             -> docker container run -dt --name HRMS -p 8090:80 nginx  
 
             
+Class - 33
+==========
+
+    -> Data Persistency in Containers 
+
+    -> Data Persistency
+
+            -> Persistent means Permanent Storage
+
+                -> Hard Disk 
+
+            -> Non-Persistent means Temporary Storage
+
+                -> RAM 
+
+    -> NOTE: By default Containers are "Non-Persistent" in nature.
+
+    -> This design makes containers lightweight, portable, and 
+    easy to scale or replace, which is ideal for "stateless" applications. 
+
+    
+    -> Goal: Deploy Login Application 
+
+        -> https://github.com/ravi2krishna/logind-2603.git
+
+    
+    -> NOTE: To achieve data persistency inside containers, we need "Volumes"
+
+    
+    -> Docker Volumes
+
+        -> Docker Volumes are a mechanism for "Persisting Data" inside containers 
+
+        -> NOTE: Check below link 
+
+            -> https://drive.google.com/file/d/1q8_TYPpd7Zg1w00vlz-LtY4ttJPjpAJm/view?usp=sharing
+
+        -> Goal: Achieve Data Persistency For Login App Container
+
+        -> docker volume ls 
+
+        -> docker container run -dt --name login-app -v volume_name:path_to_persist -p 80:80 nginx
+
+        -> docker container run -dt --name login-app -v login-vol:/usr/share/nginx/html -p 80:80 nginx
+
+            -> NOTE: Above Type Of Volume is referred to as Named Volume 
+
+    
+    
+    -> Docker Bind Mounts / Docker Host Volume 
+
+        -> Docker bind mounts allow you to map a specific file or directory 
+        on your host machine directly into a container. 
+        
+        -> Unlike Docker volumes, which are managed by Docker in a dedicated storage area
+        (/var/lib/docker/volumes/) 
+        bind mounts depend on the host's specific directory structure and file system
+
+        -> NOTE: With Named Volumes whatever we do in the Container, it reflects on the Host.
+
+        -> NOTE: With Bind Mounts whatever we do in the Host, it reflects on the Container.
+
+        -> NOTE: Use Docker Named Volumes when data is FIXED
+
+        -> NOTE: Use Docker Bind Mounts when data is VARIABLE 
+
+    
+        -> docker container run -dt --name login-app -v path_host:path_to_persist -p 80:80 nginx
+
+        -> docker container run -dt --name login-app -v /home/ubuntu/logind-2603:/usr/share/nginx/html -p 80:80 nginx
 
