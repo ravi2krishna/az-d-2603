@@ -3346,3 +3346,141 @@ Class - 33
 
         -> docker container run -dt --name login-app -v /home/ubuntu/logind-2603:/usr/share/nginx/html -p 80:80 nginx
 
+
+Class - 34
+==========
+
+    -> NOTE: Say Our Server Encountered Some Downtime (Hardware Issue - Zone - 1)
+
+        -> Next Step is to setup new Server in Datacenter (Zone - 2) and host application 
+
+        -> Launched New Server & Installed Docker 
+
+        -> Create Containers 
+
+            -> docker container run -dt --name login-app -v login-vol:/usr/share/nginx/html -p 80:80 nginx
+            -> docker container ls -a 
+            -> Browse Application Using Public IP 
+            -> NOTE: Login Application is not working 
+            -> docker container rm -f login-app
+
+            -> docker container run -dt --name login-app -v /home/ubuntu/logind-2603:/usr/share/nginx/html -p 80:80 nginx
+            -> docker container ls -a 
+            -> Browse Application Using Public IP 
+            -> NOTE: Login Application is not working 
+
+        -> NOTE: With Above Observations, we can say Volumes & Bind Mounts 
+        create Dependencies and breaks the Principal of "Portability"
+
+        -> NOTE: Noe we want Portability and Data Required for Applications,
+        to get this done we need to "Dockerize Applications".
+
+
+    
+    -> Dockerize Applications / Building Custom Images 
+
+        -> The process of Dockerizing an application involves creating a "Dockerfile" 
+        building a Docker image, and running the application as a Docker container.
+
+        -> NOTE: Suggestion From Official Nginx Image 
+
+            -> https://hub.docker.com/_/nginx
+
+            -> Alternatively, a simple Dockerfile can be used to generate a new image 
+            that includes the necessary content (which is a much cleaner solution 
+            than the bind mount or Volumes)
+
+        -> Dockerizing an application is the process of converting an application to run
+        within a docker container without any dependencies 
+
+        -> Docker can Build Custom Images automatically by reading instructions from
+        "Dockerfile"
+
+    
+    -> Dockerfile 
+
+        -> A Dockerfile is a "text document" that "contains all the commands" 
+        a user could call on command line to assemble an image  
+
+            -> Above definition looks like Shell Script 
+
+        -> NOTE: Dockerfile is the Source Code Of Docker Image 
+
+            -> Nginx Image - https://hub.docker.com/_/nginx (Useable Product / Bin)
+
+            -> Nginx Dockerfile - https://github.com/nginx/docker-nginx/blob/ccdab6c99ae2e2fc53a144dc68d6b8f44163adf2/mainline/debian/Dockerfile
+
+                (GitHub Contains Source Code)
+
+                -> Looking at above Dockerfile it's an combination of 
+                Docker Directives / Docker instructions along with Commands 
+
+    
+    -> Dockerizing Any Application, requires following flow 
+
+        -> Create Dockerfile with required instructions in your Project i.e Repository 
+
+        -> Use "docker build" command, to create Docker Image 
+
+        -> Run the container using the image that we have build, to confirm its working 
+
+        -> https://miro.medium.com/v2/1*eh-tX75FFzQffFhCfCZaMA.png
+
+            
+
+    -> Dockerizing Login Application 
+
+        -> ls 
+        -> git clone https://github.com/ravi2krishna/logind-2603.git 
+        -> ls 
+        -> cd ~/logind-2603
+        -> ls 
+        -> ls Dockerfile 
+
+        -> Syntax For Building Docker Image 
+
+            -> docker build -t username_docker_hub/custom_image_name . 
+
+        -> Create Docker Hub Account (Just Like GitHub Account)
+
+            -> docker build -t ravi2krishna/logind-2603 . 
+
+            -> ERROR: failed to build: failed to solve: failed to read dockerfile: 
+            open Dockerfile: no such file or directory
+
+            -> ls Dockerfile  
+
+        -> touch Dockerfile
+
+        -> ls 
+
+        -> docker build -t ravi2krishna/logind-2603 . 
+
+            -> ERROR: failed to build: failed to solve: the Dockerfile cannot be empty
+
+        -> cat Dockerfile 
+
+        -> cat Dockerfile 
+
+            -> please build login app image for me 
+
+            -> ERROR: failed to build: failed to solve: dockerfile parse error on line 1:
+            unknown instruction: please
+        
+        -> NOTE: To Build Docker Images, we need to give instructions in Dockerfile
+        and the instructions should be Docker Compatible 
+
+        
+        -> Docker Instructions / Docker Directives (Upper Case)
+
+            -> FROM - Set Base functionality
+            -> COPY - Copy files to image 
+            -> WORKDIR - Set Working directory like cd 
+            -> VOLUME - Create volume for image 
+            -> CMD - Set executable for container
+            -> LABEL - Maintainer information
+            -> ENV - Environment variables
+            -> RUN - Run Commands 
+            -> etc 
+
+        -> Nginx Dockerfile - https://github.com/nginx/docker-nginx/blob/ccdab6c99ae2e2fc53a144dc68d6b8f44163adf2/mainline/debian/Dockerfile
