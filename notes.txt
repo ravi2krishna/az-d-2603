@@ -3619,6 +3619,35 @@ Class - 35
             -> docker container run -dt --name qa-container -p 8081:80 ravi2krishna/logind-2603:trainer 
 
 
+Class - 36
+==========
+
+    -> Why Shouldn't we Apply Docker On LMS Application ?? 
+
+        -> LMS Application Process (Dev To Ops) --> Traditionally Takes 2 Hours 
+
+        -> LMS Application Process (Dev To Ops) --> Docker Takes 5-10 mins 
+
+    
+    -> Dockerize LMS Application 
+
+        -> LMS: Frontend + Backend + Database (Web Server - Nodejs - Postgres)
+
+        -> Just Like LMS App Setup On Server, We Will do same in containers 
+
+            -> Setup DB 
+            -> Setup API  
+            -> Setup Web App 
+
+    
+    -> Setup Postgres Database Using Container 
+
+        -> docker container run -dt --name lms-db -e POSTGRES_PASSWORD=Login@123 postgres
+
+        -> docker container ls -a 
+
+
+
 
 
 
