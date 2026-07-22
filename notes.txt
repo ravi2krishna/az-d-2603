@@ -3647,7 +3647,79 @@ Class - 36
         -> docker container ls -a 
 
 
+Class - 37
+==========
+
+    -> Building Backend Functionality 
+
+        cat Dockerfile
+        # Prepare Build For Backend API
+
+        # FROM - Set Base Image
+        FROM node:20
+
+        # RUN - Runs Commands On Above Image
+        RUN mkdir /backend
+
+        # WORKDIR - Set Working Directory (cd)
+        WORKDIR /backend
+
+        # COPY - Copy Files To Above Image
+        COPY . /backend
+
+        # RUN - Build Related Commands
+        RUN npm install
+        RUN npx prisma generate
+        RUN npx prisma db push
+        RUN npm run build
+
+        # Start Application
+        # CDM - Set Startup Command For Container
+        CMD ["node", "build/index.js"]
+
+    -> docker build -t ravi2krishna/lms-fe . 
 
 
 
+    -> Building Frontend Functionality 
 
+        # Prepare Build For Frontend
+
+        # FROM - Set Base Image
+        FROM node:20 AS frontend-build
+
+        # RUN - Runs Commands On Above Image
+        RUN mkdir /frontend
+
+        # WORKDIR - Set Working Directory (cd)
+        WORKDIR /frontend
+
+        # COPY - Copy Files To Above Image
+        COPY . /frontend
+
+        # RUN - Build Related Commands
+        RUN npm install
+        RUN npm run build
+
+        # Start - Frontend
+        # COPY /frontend/dist /usr/share/nginx/html
+        # Deploy To Nginx Image
+        FROM nginx
+        COPY --from=frontend-build /frontend/dist /usr/share/nginx/html
+
+    -> docker build -t ravi2krishna/lms-fe . 
+
+    -> NOTE: In Future, if i want to run LMS Application 
+
+        -> docker container run -dt --name lms-db -e POSTGRES_PASSWORD=Login@123 postgres
+
+        -> docker container run -dt --name lms-be -p 8080:8080 ravi2krishna/lms-be
+
+        -> docker container run -dt --name lms-fe -p 80:80 ravi2krishna/lms-fe
+
+    
+    -> Why Shouldn't we Apply Docker On LMS Application ?? 
+
+        -> LMS Application Process (Dev To Ops) --> Traditionally Takes 2 Hours 
+
+        -> LMS Application Process (Dev To Ops) --> Docker Takes 5-10 mins 
