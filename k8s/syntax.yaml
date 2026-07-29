@@ -1,0 +1,23 @@
+# Means Comment - This line is ignored
+
+# Yaml files can have .yaml or .yml as extension 
+
+# Simple Key value 
+key: value 
+name: ravi
+phone: iphone 
+weight: 200 
+
+# Lists
+courses:
+- devops 
+- aws 
+- azure
+- python
+
+# Dictionary 
+trainer:
+  name: ravi 
+  course: devops 
+  location: hyderabad 
+

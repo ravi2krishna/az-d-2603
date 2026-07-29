@@ -3874,3 +3874,189 @@ Class - 38
 
         -> For production environments, you would typically use "Managed Kubernetes Services" 
         provided by "cloud providers" Azure AKS 
+
+
+Class - 39
+==========
+
+    -> Minikube Requires, below hardware configuration
+
+            -> AWS / AZURE
+
+            -> 4 GB RAM - 2 CPU's - 30 GB Storage 
+
+            -> NOTE: Add Following Rules in Firewall
+
+                -> Make sure to add ports 22, 80, 30000-32767 as part of your Firewall 
+                Security Group(AWS) or Network Security Group(Azure)
+
+    -> Setup Minikube 
+
+        -> Verify Commands 
+
+            -> docker 
+            -> minikube 
+            -> kubectl 
+
+        -> Setup Docker 
+
+            -> docker 
+            -> wget -O get-docker.sh https://get.docker.com && sh get-docker.sh
+            -> docker
+            -> sudo usermod -aG docker ubuntu
+            -> newgrp docker
+
+        -> Setup Minikube
+
+            -> minikube
+            -> curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+            -> sudo install minikube-linux-amd64 /usr/local/bin/minikube
+            -> minikube
+            -> minikube status
+            -> minikube start
+            -> minikube status
+
+        -> Setup kubectl
+
+            -> kubectl
+            -> curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+            -> chmod u+x kubectl 
+            -> sudo mv kubectl /usr/local/bin/kubectl
+            -> kubectl 
+
+    -> NOTE: Once the minikube cluster is setup, we are gonna be using "kubectl" to do 
+    any sort of work on the cluster like getting status, creating applications etc 
+
+        -> kubectl get pods 
+        -> kubectl get replicasets
+        -> kubectl get deployments
+        -> etc 
+
+    
+    -> Kubernetes Objects 
+
+        -> By creating an object, you’re telling the Kubernetes system 
+        what applications to run in the cluster
+
+        -> Few examples of kubernetes objects include pods, replicasets, deployments etc.
+
+        -> To work with Kubernetes objects, whether to "create", "modify" or "delete" them, 
+        you’ll need to use a command-line tool called KUBECTL. 
+
+    
+    -> Object Spec & Object Status 
+
+        -> Object Spec
+
+            -> The object spec, which you(devops engineer) must provide, 
+            describes your desired state for the object(application), 
+            the characteristics that you want the object to have.  
+
+
+        -> Object Status
+
+            -> The object status describes the actual state of the object, 
+            and is supplied and updated by the Kubernetes system. 
+
+    -> https://kubernetes.io/docs/concepts/overview/working-with-objects/
+
+
+    -> Manage Objects 
+
+        -> Managing Objects inside kubernetes can be done using
+
+            -> Commands - Imperative Commands 
+
+            -> CODE (YAML) - Declarative Configuration Files or Kubernetes Manifests (recommended)
+
+
+    -> Pod Object
+
+        -> A Pod Object, represents a "unit of deployment" i.e 
+        a "single instance of an application" in Kubernetes.
+
+        -> Imperative Commands (Similar To Docker Commands)
+
+            -> kubectl get pods (it's like docker container ls -a)
+
+            -> kubectl run name_of_pod --image image_name --port=port_number (it's like docker container run)
+
+            -> kubectl run nginx-pod --image nginx --port=80 
+
+            -> kubectl get pods 
+
+            -> kubectl describe pod name_of_pod (it's like docker inspect command)
+
+            -> kubectl describe pod nginx-pod
+
+            -> kubectl exec name_of_pod -- command (it's like docker exec command)
+
+            -> kubectl exec nginx-pod -- cat /usr/share/nginx/html/index.html 
+
+            -> kubectl get pods 
+
+            -> kubectl delete pod name_of_pod
+
+            -> kubectl delete pod nginx-pod
+
+            -> kubectl get pods 
+
+    
+    -> Representing kubernetes (k8s) using CODE (YAML)
+
+    -> YAML 
+
+        -> YAML is a human-readable data serialization language. 
+        It is commonly used for "configuration files" (k8s) and in applications 
+        where data is being stored or transmitted.
+
+        -> NOTE: YAML is used to store information about different k8s object
+        pods, replicasets, deployments etc 
+
+
+        -> YAML is k8s has
+
+            -> Simple Key Values Pairs 
+
+                -> The basic type of entry in a YAML file is of a key value pair. 
+                After the Key and colon there is a space and then the value.
+
+                    -> key: value 
+
+        -> Lists: Multiple Items  
+
+                -> Lists would have a number of items listed under the name of the list. 
+                The elements of the list would start with a -    
+
+                    -> Fruits:
+                    - apple 
+                    - banana 
+                    - etc
+
+        
+        -> Dictionaries: Set Of Key Values Pairs 
+
+            -> A more complex type of YAML file would be a Dictionary
+            It consists of key-value pairs.
+
+                -> banana:
+                    calories: 200
+                    fat: 0.5 
+
+    
+    -> NOTE: Every k8s object has 4 Top Level items in yaml script
+
+        -> apiVersion 
+        -> kind 
+        -> metadata 
+        -> spec 
+
+    -> Check these links 
+
+            -> https://kubernetes.io/docs/concepts/workloads/pods/
+
+            -> https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/
+
+            -> https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
+
+            -> Every k8s object has 4 Top Level items in yaml script
