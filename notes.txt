@@ -4060,3 +4060,58 @@ Class - 39
             -> https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
 
             -> Every k8s object has 4 Top Level items in yaml script
+
+
+Class - 40
+==========
+
+    ->  Warning: It is recommended that users create Pods only through a 
+    Controller, and not directly. 
+
+        -> Pods are ephemeral in nature no guarantee of availability
+
+        -> Pods are not designed to run forever 
+
+        -> Pods do not heal or repair themselves 
+
+
+    -> Replicaset Object 
+
+        -> Replicaset Object, is often used to guarantee the "availability" of pods  
+
+        -> Replica Set manages pod lifecycle
+
+        -> Replicaset helps you achieve High Availability 
+
+        -> A Kubernetes ReplicaSet (RS) is a core workload controller designed to 
+        maintain a stable set of replica Pods running at any given time. 
+        It acts as a self-healing mechanism that automatically 
+        creates or terminates Pods to guarantee application availability and scaling.
+
+        -> Self-Healing: Automatically replaces crashed, deleted, or failed Pods.
+        
+        -> Guaranteed Availability: Ensures the cluster always has the 
+        exact number of Pods specified. 
+        
+        -> Warning: In many cases it is recommended to create a Deployment 
+        instead of ReplicaSet.
+
+        -> NOTE: The problem with ReplicaSet is "NO UPDATES"
+
+    
+    -> Deployment Object
+
+        -> A deployment provides "updates" for pods and replicasets.
+
+        -> NOTE: No Warning for Deployment, this is the reason in real world 
+        We never create pods & replicasets directly.
+        We use deployments in real world to manage pods & replicasets.
+
+        -> Deployment -> ReplicaSet -> Pod 
+
+        -> Deployment (Updates) -> ReplicaSet (Availability) -> Pod (Application)
+
+
+    -> NOTE: How to access our Login App Now, From Customers point of view ?  
+
+        -> We Need Service Object 
