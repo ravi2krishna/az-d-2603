@@ -4190,3 +4190,39 @@ Class - 41
                 -> kubectl port-forward --address 0.0.0.0 service/nginx-service 30000:80
 
                 -> Browse Application On http://18.119.104.54:30000/
+
+
+Class - 42
+==========
+
+    -> docker container run -dt --name login-app -v /home/ubuntu/logind-2603:/usr/share/nginx/html -p 80:80 nginx
+
+    -> NOTE: In Docker We have Volumes for data management
+
+    -> NOTE: In Kubernetes We have PersistentVolume Object for data management
+
+    -> Persistent Volumes - PV 
+
+        -> A PersistentVolume (PV) is a piece of "storage" in the cluster
+
+        -> PersistentVolume Storage is independent of pods 
+
+            -> Like Docker Volume is independent of container 
+
+    -> Persistent Volume Claim - PVC 
+
+        -> Persistent Volume Claim Object is a request for storage by the pod 
+
+    -> Storage Class 
+
+        -> A Storage Class Object in kubernetes defines the type of storage to use 
+
+    
+    -> NOTE: How everything is connected 
+
+        -> Pod -> Persistent Volume Claim -> Persistent Volume -> Physical Storage(Storage Class)  
+
+
+    -> https://kubernetes.io/docs/tutorials/configuration/configure-persistent-volume-storage/
+
+    
