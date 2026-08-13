@@ -4367,4 +4367,69 @@ Class - 44
             kubectl get pods
 
 
+Class - 45
+==========
+
+    -> CI - CD (Continuous Integration & Continuous Deployment)
+
+    -> In software engineering, CI/CD or CICD is the combined practices of 
+    continuous integration and either continuous delivery or 
+    continuous deployment.
     
+    -> CI/CD bridges the gaps between development and operation activities and 
+    teams by enforcing automation in building, testing and deployment of applications.
+
+    -> There is no CI - CD 
+
+        -> New Requirement in terms of any application (Login, LMS ect)
+
+            -> Developers Will Write Code 
+
+                -> Build Needs To Start 
+
+                    -> Artifact Is Generated (Artifact is Docker Image)
+
+                        -> Artifact Needs To Be Published 
+
+                            -> Pick the Artifact and Deploy To Respective Environment 
+
+        -> NOTE: All the above activities needs to be done Manually using 
+        certain commands.  
+
+    -> NOTE: enforcing automation in building, testing and deployment of applications.
+
+    -> NOTE: CI - CD Introduces Automation Into Stages Of Application Development
+
+    -> NOTE: If Your Tasks are Repeatable i.e done is the same way over time, 
+    then use CI - CD to simply Automate Repeatable Process. 
+
+    
+    -> Azure DevOps Platform 
+
+        -> Azure DevOps is a Suite Of Development Tools Provided By Microsoft 
+        to help Development Teams Plan, Build, Test & Deploy Applications
+        Easily and Efficiently. 
+
+        -> Azure DevOps Platform Offers Range Of Tools/Services to support 
+        entire Software Development Lifecycle
+
+        -> Azure Boards 
+
+            -> Enable Agile Project Management and Tracking Of Work Items 
+            like User Stories, Bugs etc 
+
+            -> Like GitHub Projects and Issues 
+
+        -> Azure Repos 
+
+            -> Provides Source Code Management with Source Versioning Abilities 
+
+            -> Like GitHub Repositories 
+
+        -> Azure Pipelines 
+
+            -> Enables CI - CD To Automate the Software Development Lifecycle
+
+
+
+
